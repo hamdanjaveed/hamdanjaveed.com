@@ -1,0 +1,48 @@
+html {
+    font-family:Source Code Pro, sans-serif;
+/*    font-family: Poiret One, cursive;*/
+/*    font-family: 'Raleway', sans-serif;*/
+    background-color:#222222;
+    text-align:center;
+}
+
+header {
+    background-image:url(header.png);
+    position:fixed;
+    display:block;
+    top:0px;
+    left:0%;
+    right:0%;
+    height:500px;
+    z-index:0;
+}
+
+header h1 {
+    position:relative;
+    color:rgb(214, 99, 96);
+    top:30px;
+    font-size:4em;
+}
+
+header p {
+    font-size:2em;
+    color:rgb(175, 168, 162);
+}
+
+#main {
+    top:500px;
+    left:0%;
+    right:0%;
+    position:absolute;
+    display:block;
+    height:1000px;
+    z-index:1;
+    
+    background-image:url(main.png);
+}
+
+#main p {
+    font-size:2em;
+    position:absolute;
+    bottom:50px;
+}

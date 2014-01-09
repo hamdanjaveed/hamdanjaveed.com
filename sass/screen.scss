@@ -1,0 +1,51 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass";
+@import "compass/css3/border-radius";
+
+html {
+    font-family: 'Raleway', sans-serif;
+    text-align:center;
+    transition:all 0.5s ease;
+}
+
+header {
+    width:100%;
+    background-color:#393939;
+    
+    h1 {
+        font-size:4em;
+        font-weight:100;
+        color:#FF9900;
+        padding:50px;
+    }
+}
+
+#content {
+    padding:50px;
+    @include background-image(linear-gradient(#393939, #6E6E6E));
+    height:500px;
+    
+    #button {
+        width:200px;
+        height:200px;
+        background-color:#FF5A09;
+        text-decoration:none;
+        font-size:3em;
+        line-height:4em;
+        @include border-radius(50px, 50px);
+        
+        a {
+            text-decoration:none;
+            color:#EEE;
+        }
+        
+        a:hover {
+            color:#222;
+        }
+    }
+}

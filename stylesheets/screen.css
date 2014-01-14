@@ -67,35 +67,75 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 8, ../sass/screen.scss */
+/* line 16, ../sass/screen.scss */
 html {
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  background-color: #F2F1ED;
+  background-color: #f2f1ed;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 22, ../sass/screen.scss */
 header {
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-/* line 20, ../sass/screen.scss */
-header h1 {
-  font-size: 4em;
-  font-weight: 100;
-  color: #262626;
-  padding-bottom: 20px;
+  height: 60px;
 }
 /* line 27, ../sass/screen.scss */
-header h2 {
+header div {
+  width: 70%;
+  height: 60px;
+  margin: 0 auto;
+}
+/* line 32, ../sass/screen.scss */
+header div * {
+  display: inline;
+  transition: all 0.2s;
+}
+/* line 37, ../sass/screen.scss */
+header div h1 {
   font-size: 2em;
   font-weight: 100;
-  color: #DE5A51;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 2px solid #DE5A51;
-  border-bottom: 2px solid #DE5A51;
-  background-color: #D9D8D4;
-  box-shadow: inset 0px 0px 10px 3px #BFBEBA;
+  color: #262626;
+  float: left;
+  margin-top: 15px;
+}
+/* line 44, ../sass/screen.scss */
+header div h1 span {
+  color: #f56015;
+}
+/* line 49, ../sass/screen.scss */
+header div ul {
+  float: right;
+  margin-top: 25px;
+}
+/* line 53, ../sass/screen.scss */
+header div ul li {
+  padding-left: 20px;
+}
+/* line 56, ../sass/screen.scss */
+header div ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+/* line 61, ../sass/screen.scss */
+header div ul li a:hover {
+  color: #f56015;
+  cursor: pointer;
+}
+
+/* line 70, ../sass/screen.scss */
+#landingContainer {
+  background-image: url("/img/landingImage.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+/* line 79, ../sass/screen.scss */
+#landingContainer h1 {
+  font-weight: 100;
+  font-size: 4em;
+  color: #eeeeee;
+  margin: 0 auto;
+  padding-top: 220px;
 }

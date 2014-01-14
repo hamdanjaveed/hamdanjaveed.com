@@ -5,36 +5,82 @@
 
 @import "compass/reset";
 
+$cream: #F2F1ED;
+$lightGrey: #B0B0B0;
+$orange: #F56015;
+$white: #EEE;
+
+$headerHeight: 60px;
+$headerWidth: 70%;
+
 html {
     font-family: 'Raleway', sans-serif;
-    text-align:center;
-    background-color:#F2F1ED;
+    text-align: center;
+    background-color: $cream;
 }
 
 header {
-    width:100%;
-//    background-color:#262626;
-    padding-top:20px;
-    padding-bottom:20px;
+    width: 100%;
+    height:$headerHeight;
+//    border-bottom:solid $lightGrey thin;
     
-    h1 {
-        font-size:4em;
-        font-weight:100;
-        color:#262626;
-        padding-bottom:20px;
-    }
-    
-    h2 {
-        font-size:2em;
-        font-weight:100;
-        color:#DE5A51;
-        padding-top:20px;
-        padding-bottom:20px;
-        border-top:2px solid #DE5A51;
-        border-bottom:2px solid #DE5A51;
-        background-color:#D9D8D4;
-        box-shadow:inset 0px 0px 10px 3px #BFBEBA;
+    div {
+        width: 70%;
+        height:$headerHeight;
+        margin: 0 auto;
+        
+        * {
+            display: inline;
+            transition: all 0.2s;
+        }
+        
+        h1 {
+            font-size: 2em;
+            font-weight: 100;
+            color: #262626;
+            float:left;
+            margin-top:15px;
+            
+            span {
+                color:$orange;
+            }
+        }
+        
+        ul {
+            float:right;
+            margin-top:25px;
+            
+            li {
+                padding-left:20px;
+                
+                a {
+                    text-decoration:none;
+                    color:inherit;
+                }
+                
+                a:hover {
+                    color: $orange;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }
 
-// light grey: B0B0B0
+#landingContainer {
+    background-image:url("/img/landingImage.png");
+    background-size:cover;
+    background-position:50% 50%;
+    position:relative;
+    
+    width:100%;
+    height:500px;
+    
+    h1 {
+        font-weight:100;
+        font-size:4em;
+        color:$white;
+        margin:0 auto;
+        padding-top:220px;
+    }
+}

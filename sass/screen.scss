@@ -4,60 +4,71 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "compass/css3/border-radius";
 
-$cream: #F2F1ED;
-$lightGrey: #B0B0B0;
-$orange: #F56015;
-$white: #EEE;
-
-$headerHeight: 60px;
-$headerWidth: 70%;
+$cream:#F2F1ED;
+$lightGrey:#B0B0B0;
+$grey:#909090;
+$orange:#F56015;
+$white:#EEE;
+$brown:#504A46;
+$headerHeight:60px;
+$headerWidth:70%;
 
 html {
     font-family: 'Raleway', sans-serif;
     text-align: center;
-    background-color: $cream;
+    
+    * {
+        transition:all 0.2s ease-in-out;
+    }
+}
+
+#background {
+    background-image: url("/img/landingImage.png");
+    background-size:cover;
+    background-position:50% 50%;
+    
+    transition:none !important;
+    
+    position:fixed;
+    z-index:-1;
+    
+    width:100%;
+    height:100%;
 }
 
 header {
     width: 100%;
-    height:$headerHeight;
-//    border-bottom:solid $lightGrey thin;
+    height: $headerHeight;
+    background-color:$cream;
     
     div {
         width: 70%;
-        height:$headerHeight;
+        height: $headerHeight;
         margin: 0 auto;
-        
         * {
             display: inline;
-            transition: all 0.2s;
         }
-        
         h1 {
             font-size: 2em;
             font-weight: 100;
             color: #262626;
-            float:left;
-            margin-top:15px;
-            
+            float: left;
+            margin-top: 15px;
             span {
-                color:$orange;
+                color: $orange;
             }
         }
-        
         ul {
-            float:right;
-            margin-top:25px;
-            
+            float: right;
+            margin-top: 25px;
             li {
-                padding-left:20px;
-                
+                padding-left: 20px;
                 a {
-                    text-decoration:none;
-                    color:inherit;
+                    text-decoration: none;
+                    color: inherit;
                 }
-                
                 a:hover {
                     color: $orange;
                     cursor: pointer;
@@ -68,19 +79,80 @@ header {
 }
 
 #landingContainer {
-    background-image:url("/img/landingImage.png");
-    background-size:cover;
-    background-position:50% 50%;
-    position:relative;
-    
-    width:100%;
-    height:500px;
+    width: 100%;
+    height: 500px;
     
     h1 {
-        font-weight:100;
+        font-weight: 100;
+        font-size: 4em;
+        color: $white;
+        margin: 0 auto;
+        position:relative;
+        bottom:-230px;
+        transition:none !important;
+    }
+    
+    a {
+        text-decoration:none;
+        color:rgba($white, 0.75);
         font-size:4em;
-        color:$white;
+        position:relative;
+        bottom:-290px;
+        transition:none !important;
+    }
+}
+
+#currentWork {
+    width: 100%;
+    background-color:$cream;
+    
+    #title {
+        padding: 50px;
+    
+        h1 {
+            font-size: 3em;
+            font-weight: 100;
+        }
+    }
+    
+    .project {
+        display:inline-block;
+        position:relative;
+        background-color: $cream;
+        top:0px;
+        width: 350px;
+        height:350px;
         margin:0 auto;
-        padding-top:220px;
+        border:2px $lightGrey solid;
+        margin-right:60px;
+        margin-bottom:60px;
+        
+        @include border-radius(10px, 10px);
+        
+        h2 {
+            font-size:2em;
+            font-weight:100;
+            padding:20px;
+            margin:0 auto;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            color:black;
+        }
+        
+        img {
+            @include border-radius(10px, 10px);
+        }
+        
+        h1 {
+            font-size:16em;
+            font-weight:100;
+            color:$brown;
+        }
+    }
+    
+    .project:hover {
+        top:-10px;
+        border:2px $orange solid;
     }
 }

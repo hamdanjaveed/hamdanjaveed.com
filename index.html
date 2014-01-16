@@ -8,7 +8,12 @@
 
     <!-- a link to the .css file -->
     <link type="text/css" rel=stylesheet href="stylesheets/screen.css" />
-
+    <script type="text/javascript" src="smooth-scroll.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="jquery.xdomainajax.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="smoothscroll.js"></script>
+    
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -28,10 +33,13 @@
 </head>
 
 <body>
+    <div id="background">
+    </div>
+    
     <header>
         <div>
             <h1>
-                <span>hamdan</span>javeed</h1>
+                <span>hamdan</span> javeed</h1>
             <ul>
                 <li>
                     <a href="#">Home</a>
@@ -48,8 +56,15 @@
 
     <div id="landingContainer">
         <h1>Hi, I'm Hamdan!</h1>
+        <a class="smoothScroll" href="#currentWork">↓</a>
     </div>
 
+    <div id="currentWork">
+        <div id="title">
+            <h1>What I'm working on</h1>
+        </div>
+    </div>
+    
     
 </body>
 

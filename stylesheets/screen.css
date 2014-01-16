@@ -159,24 +159,29 @@ header div ul li a:hover {
   font-size: 4em;
   position: relative;
   bottom: -290px;
+  transition: color 0.2s ease-in-out !important;
   transition: none !important;
 }
-
 /* line 105, ../sass/screen.scss */
+#landingContainer a:hover {
+  color: rgba(245, 96, 21, 0.75);
+}
+
+/* line 110, ../sass/screen.scss */
 #currentWork {
   width: 100%;
   background-color: #f2f1ed;
 }
-/* line 109, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 #currentWork #title {
   padding: 50px;
 }
-/* line 112, ../sass/screen.scss */
+/* line 117, ../sass/screen.scss */
 #currentWork #title h1 {
   font-size: 3em;
   font-weight: 100;
 }
-/* line 118, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 #currentWork .project {
   display: inline-block;
   position: relative;
@@ -192,7 +197,7 @@ header div ul li a:hover {
   -moz-border-radius: 10px / 10px;
   border-radius: 10px / 10px;
 }
-/* line 132, ../sass/screen.scss */
+/* line 137, ../sass/screen.scss */
 #currentWork .project h2 {
   font-size: 2em;
   font-weight: 100;
@@ -203,19 +208,19 @@ header div ul li a:hover {
   overflow: hidden;
   color: black;
 }
-/* line 143, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 #currentWork .project img {
   -webkit-border-radius: 10px 10px;
   -moz-border-radius: 10px / 10px;
   border-radius: 10px / 10px;
 }
-/* line 147, ../sass/screen.scss */
+/* line 152, ../sass/screen.scss */
 #currentWork .project h1 {
   font-size: 16em;
   font-weight: 100;
   color: #504a46;
 }
-/* line 154, ../sass/screen.scss */
+/* line 159, ../sass/screen.scss */
 #currentWork .project:hover {
   top: -10px;
   border: 2px #f56015 solid;

@@ -98,7 +98,12 @@ header {
         font-size:4em;
         position:relative;
         bottom:-290px;
+        transition:color 0.2s ease-in-out !important;
         transition:none !important;
+    }
+    
+    a:hover {
+        color:rgba($orange, 0.75);
     }
 }
 

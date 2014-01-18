@@ -6,7 +6,7 @@ $.ajax({
         for (var i = 0; i < 6; i++) {
             console.log(repos[i]);
             
-            $("#currentWork").append('<a href="' + repos[i].html_url + '"><div class="project" style="background-color:' + getColorForLanguage(repos[i].language) + ';"><h2>' +repos[i].name+ '</h2><h1>' + repos[i].name.charAt(0).toUpperCase() + '</h1></div></a>');
+            $("#currentWork").append('<a href="' + repos[i].html_url + '"><div class="project" style="background-color:' + getColorForLanguage(repos[i].language) + ';"><h2>' +repos[i].name+ '</h2><h1>' + repos[i].name.charAt(0).toUpperCase() + '</h1><div class="projectDescription"><br /><br /><br /><br /><br /><br /><p>' + repos[i].description + '</p></div></div></a>');
         }
     }
 });
@@ -23,13 +23,5 @@ function getColorForLanguage(lang) {
 }
 
 $(document).ready(function() {
-    $(window).scroll(function() {
-        var s = $(window).scrollTop();
-        $("#background").css("top", "-" + (s/5) + "px");
-        $("#landingContainer h1").css("bottom", "-230" - (s/3) + "px");
-        $("#landingContainer h1").css("opacity", (500 - s) / 500);
-        
-        $("#landingContainer a").css("bottom", "-290" - (s/3) + "px");
-        $("#landingContainer a").css("opacity", (280 - s) / 280);
-    });
+    var s = skrollr.init();
 });

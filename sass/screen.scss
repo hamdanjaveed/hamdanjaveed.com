@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 @import "compass/css3/border-radius";
+@import "compass/css3/filter";
 
 $cream:#F2F1ED;
 $lightGrey:#B0B0B0;
@@ -15,12 +16,14 @@ $brown:#504A46;
 $headerHeight:60px;
 $headerWidth:70%;
 
+$projectBorderRadius:10px;
+
 html {
     font-family: 'Raleway', sans-serif;
     text-align: center;
     
     * {
-        transition:all 0.2s ease-in-out;
+        transition:color 0.2s ease-in-out;
     }
 }
 
@@ -28,8 +31,6 @@ html {
     background-image: url("/img/landingImage.png");
     background-size:cover;
     background-position:50% 50%;
-    
-    transition:none !important;
     
     position:fixed;
     z-index:-1;
@@ -89,7 +90,6 @@ header {
         margin: 0 auto;
         position:relative;
         bottom:-230px;
-        transition:none !important;
     }
     
     a {
@@ -98,12 +98,6 @@ header {
         font-size:4em;
         position:relative;
         bottom:-290px;
-        transition:background-color 0.2s ease-in-out !important;
-        transition:none !important;
-    }
-    
-    a:hover {
-        background-color:rgba($lightGrey, 0.75);
     }
 }
 
@@ -132,8 +126,13 @@ header {
         margin-right:30px;
         margin-left:30px;
         margin-bottom:60px;
+        transition:all 0.2s ease-in-out;
         
-        @include border-radius(10px, 10px);
+        * {
+            transition:all 0.2s ease-in-out;
+        }
+        
+        @include border-radius($projectBorderRadius, $projectBorderRadius);
         
         h2 {
             font-size:2em;
@@ -147,7 +146,7 @@ header {
         }
         
         img {
-            @include border-radius(10px, 10px);
+            @include border-radius($projectBorderRadius, $projectBorderRadius);
         }
         
         h1 {
@@ -155,10 +154,36 @@ header {
             font-weight:100;
             color:$brown;
         }
+        
+        .projectDescription {
+            opacity:0.0;
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:inherit;
+            height:inherit;
+            background-color:rgba($brown, 0.5);
+            @include border-radius($projectBorderRadius, $projectBorderRadius);
+            
+            p {
+                text-decoration:none;
+                color:$white;
+                font-size:2em;
+                padding:20px;
+                font-weight:100;
+            }
+        }
     }
     
     .project:hover {
         top:-10px;
         border:2px $orange solid;
+        h1 {
+            @include filter(blur(10px));
+        }
+        
+        .projectDescription {
+            opacity:1.0;
+        }
     }
 }

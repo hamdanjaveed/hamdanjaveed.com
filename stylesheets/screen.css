@@ -67,17 +67,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 21, ../sass/screen.scss */
+/* line 22, ../sass/screen.scss */
 html {
   font-family: 'Raleway', sans-serif;
+  font-weight: 100;
   text-align: center;
 }
-/* line 25, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 html * {
   transition: color 0.2s ease-in-out;
 }
 
-/* line 30, ../sass/screen.scss */
+/* line 32, ../sass/screen.scss */
 #background {
   background-image: url("/img/landingImage.png");
   background-size: cover;
@@ -88,69 +89,69 @@ html * {
   height: 100%;
 }
 
-/* line 42, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
+#orange {
+  color: #f56015;
+}
+
+/* line 48, ../sass/screen.scss */
 header {
   width: 100%;
   height: 60px;
   background-color: #f2f1ed;
 }
-/* line 47, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
 header div {
   width: 70%;
   height: 60px;
   margin: 0 auto;
 }
-/* line 51, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
 header div * {
   display: inline;
 }
-/* line 54, ../sass/screen.scss */
+/* line 60, ../sass/screen.scss */
 header div h1 {
   font-size: 2em;
-  font-weight: 100;
   color: #262626;
   float: left;
   margin-top: 15px;
 }
-/* line 60, ../sass/screen.scss */
-header div h1 span {
-  color: #f56015;
-}
-/* line 64, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 header div ul {
   float: right;
   margin-top: 25px;
 }
-/* line 67, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 header div ul li {
   padding-left: 20px;
+  font-weight: 400;
 }
-/* line 69, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 header div ul li a {
   text-decoration: none;
   color: inherit;
 }
-/* line 73, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 header div ul li a:hover {
   color: #f56015;
   cursor: pointer;
 }
 
-/* line 82, ../sass/screen.scss */
+/* line 85, ../sass/screen.scss */
 #landingContainer {
   width: 100%;
   height: 500px;
 }
-/* line 86, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 #landingContainer h1 {
-  font-weight: 100;
   font-size: 4em;
   color: #eeeeee;
   margin: 0 auto;
   position: relative;
   bottom: -230px;
 }
-/* line 95, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 #landingContainer a {
   text-decoration: none;
   color: rgba(238, 238, 238, 0.75);
@@ -159,21 +160,34 @@ header div ul li a:hover {
   bottom: -290px;
 }
 
-/* line 104, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
+#title {
+  padding: 50px;
+}
+/* line 109, ../sass/screen.scss */
+#title h1 {
+  font-size: 3em;
+}
+
+/* line 114, ../sass/screen.scss */
+.projectShowcase {
+  padding: 50px;
+}
+/* line 117, ../sass/screen.scss */
+.projectShowcase h2 {
+  font-size: 3em;
+}
+/* line 121, ../sass/screen.scss */
+.projectShowcase h3 {
+  font-size: 2em;
+}
+
+/* line 126, ../sass/screen.scss */
 #currentWork {
   width: 100%;
   background-color: #f2f1ed;
 }
-/* line 108, ../sass/screen.scss */
-#currentWork #title {
-  padding: 50px;
-}
-/* line 111, ../sass/screen.scss */
-#currentWork #title h1 {
-  font-size: 3em;
-  font-weight: 100;
-}
-/* line 117, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 #currentWork .project {
   display: inline-block;
   position: relative;
@@ -191,14 +205,13 @@ header div ul li a:hover {
   -moz-border-radius: 10px / 10px;
   border-radius: 10px / 10px;
 }
-/* line 131, ../sass/screen.scss */
+/* line 144, ../sass/screen.scss */
 #currentWork .project * {
   transition: all 0.2s ease-in-out;
 }
-/* line 137, ../sass/screen.scss */
+/* line 150, ../sass/screen.scss */
 #currentWork .project h2 {
   font-size: 2em;
-  font-weight: 100;
   padding: 20px;
   margin: 0 auto;
   text-overflow: ellipsis;
@@ -206,19 +219,18 @@ header div ul li a:hover {
   overflow: hidden;
   color: black;
 }
-/* line 148, ../sass/screen.scss */
+/* line 160, ../sass/screen.scss */
 #currentWork .project img {
   -webkit-border-radius: 10px 10px;
   -moz-border-radius: 10px / 10px;
   border-radius: 10px / 10px;
 }
-/* line 152, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 #currentWork .project h1 {
   font-size: 16em;
-  font-weight: 100;
   color: #504a46;
 }
-/* line 158, ../sass/screen.scss */
+/* line 169, ../sass/screen.scss */
 #currentWork .project .projectDescription {
   opacity: 0.0;
   position: absolute;
@@ -231,26 +243,47 @@ header div ul li a:hover {
   -moz-border-radius: 10px / 10px;
   border-radius: 10px / 10px;
 }
-/* line 168, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 #currentWork .project .projectDescription p {
   text-decoration: none;
   color: #eeeeee;
   font-size: 2em;
   padding: 20px;
-  font-weight: 100;
 }
-/* line 178, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 #currentWork .project:hover {
   top: -10px;
   border: 2px #f56015 solid;
 }
-/* line 181, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 #currentWork .project:hover h1 {
   -webkit-filter: blur(10px);
   -moz-filter: blur(10px);
   filter: blur(10px);
 }
-/* line 185, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 #currentWork .project:hover .projectDescription {
   opacity: 1.0;
+}
+
+/* line 201, ../sass/screen.scss */
+#technicalExperience {
+  background-color: #f2f1ed;
+}
+
+/* line 205, ../sass/screen.scss */
+#personalProjects {
+  background-color: #d9d8d4;
+}
+
+/* line 209, ../sass/screen.scss */
+footer {
+  background-color: #504a46;
+  width: 100%;
+  height: 60px;
+}
+/* line 215, ../sass/screen.scss */
+footer h2 {
+  padding-top: 25px;
+  color: #eeeeee;
 }

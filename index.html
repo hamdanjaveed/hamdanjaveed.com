@@ -5,6 +5,7 @@
     <title>home</title>
     <!-- this link downloads the Source Code Pro font from the google fonts servers -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400' rel='stylesheet' type='text/css'>
 
     <!-- a link to the .css file -->
     <link type="text/css" rel=stylesheet href="stylesheets/screen.css" />
@@ -42,9 +43,6 @@
                 <span id="orange">hamdan</span> javeed</h1>
             <ul>
                 <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
                     <a class="smoothScroll" href="#technicalExperience">Experience</a>
                 </li>
                 <li>
@@ -59,9 +57,25 @@
 
     <div id="landingContainer">
         <h1 data-0="bottom:-230px; opacity:1.0;" data-500="bottom:-400; opacity:0.0;" data-smooth-scrolling="off">Hi, I'm Hamdan!</h1>
-        <a class="smoothScroll" href="#technicalExperience" data-0="bottom:-290px; opacity:1.0;" data-500="bottom:-380; opacity:0.0;" data-smooth-scrolling="off">
+        <a class="smoothScroll" href="#about" data-0="bottom:-290px; opacity:1.0;" data-500="bottom:-380; opacity:0.0;" data-smooth-scrolling="off">
             <img src="img/scrollArrow.png">
         </a>
+    </div>
+    
+    <div id="about">
+        <div id="title">
+            <h1>Who I am</h1>
+        </div>
+        
+        <div id="aboutContent">
+            <img src="img/me.jpg" alt="i really wasnt paying attention in this picture at all :( but whatev :D">
+            
+            <p>Hi! My name's Hamdan. I'm a student studying Software Engineering at the University of Waterloo. Below you can checkout my LinkedIn and GitHub profiles, or send me an email.</p>
+        
+        <a href="https://github.com/hamdanjaveed" target="_blank"><img src="img/github.png" alt="GitHub"></a>
+        <a href="http://www.linkedin.com/in/hamdanjaveed" target="_blank"><img src="img/linkedin.png" alt="LinkedIn"></a>
+        <a href="mailto:hamdan@hamdanjaveed.com" target="_blank"><img src="img/email.png" alt="E-mail"></a>
+        </div>
     </div>
 
     <div id="technicalExperience">
@@ -70,15 +84,17 @@
         </div>
 
         <div id="uwaft" class="projectShowcase">
-            <h2>
-                <span id="orange">Web Developer</span>
-            </h2>
-            <h3>University of Waterloo Alternative Fuels Team</h3>
+            <div class="projectTitlePackage">
+                <h2><span id="orange">Web Developer</span></h2>
+                <h3>University of Waterloo Alternative Fuels Team</h3>
+            </div>
             
-            <p>Details and screenshots will be posted tomorrow, sorry! For now, you can view the project on GitHub.</p>
-
             <div class="viewInGitHub">
                 <a href="https://github.com/hamdanjaveed/UWAFT-Website" target="_blank">View UWAFT on GitHub</a>
+            </div>
+            
+            <div class="projectDescription">
+                <p>The University of Waterloo Alternative Fuels Team approached our class of Software Engineers and asked us to redesign their old website. The main problem with the old website was that it was just too boring and bland. A few of us took the challenge and started to design and implement a new website. I worked with a peer to design and implement the home page of the website. The website used HTML, CSS and JavaScript. We used JQuery as well as the JQuery color plugin to animate colors. I used SASS</p>
             </div>
         </div>
     </div>
@@ -89,42 +105,64 @@
         </div>
 
         <div id="timerForRubiksCube" class="projectShowcase">
-            <h2><span id="orange">Timer for Rubik's Cube</span></h2>
-            
-            <p>Details and screenshots will be posted tomorrow, sorry! For now, you can view the project on GitHub.</p>
+            <div class="projectTitlePackage">
+                <h2><span id="orange">Timer for Rubik's Cube</span></h2>
+            </div>
             
             <div class="viewInGitHub">
-                <a href="https://github.com/hamdanjaveed/Timer-for-Rubik-s-Cube" target="_blank">View Timer for Rubik's Cube on GitHub</a>
+                <a href="https://github.com/hamdanjaveed/Timer-for-Rubik-s-Cube" target="_blank">View Rubik's Cube Timer on GitHub</a>
+            </div>
+            
+            <div class="projectDescription">
+                <p>Timer for Rubik's Cube is (going to be) my first iOS app on the App Store. The app is currently being reviewed by Apple.</p>
+                <p>I developed the app to log and track 3x3 Rubik's Cube solves. A random scramble is generated every solve. The app has support for inspection time that can be adjusted from 0 seconds to a minute. It stores your times so that you can view them at a later date, as well as giving you the most important statistics about your solves in general.</p>
             </div>
         </div>
 
         <div id="snippets" class="projectShowcase">
-            <h2><span id="orange">Snippets</span></h2>
-            
-            <p>Details and screenshots will be posted tomorrow, sorry! For now, you can view the project on GitHub.</p>
+            <div class="projectTitlePackage">
+                <h2><span id="orange">Snippets</span></h2>
+            </div>
             
             <div class="viewInGitHub">
                 <a href="https://github.com/hamdanjaveed/Snippets" target="_blank">View Snippets on GitHub</a>
             </div>
+            
+            <div class="projectDescription">
+                <p>Snippets is a code snippet extension written for the Brackets code editor. It will respond to keywords (that you specify) through a command. The keyword gets replaced by some snippet of code.</p>
+            </div>
         </div>
 
         <div id="workathon" class="projectShowcase">
-            <h2><span id="orange">Workathon</span></h2>
-            
-            <p>Details and screenshots will be posted tomorrow, sorry! For now, you can view the project on GitHub.</p>
+            <div class="projectTitlePackage">
+                <h2><span id="orange">Workathon</span></h2>
+            </div>
             
             <div class="viewInGitHub">
                 <a href="https://github.com/gabrielwong/Workathon" target="_blank">View Workathon on GitHub</a>
             </div>
+            
+            <div class="projectDescription">
+                <p>Workathon is a Google Chrome extension that blocks distracting websites in the hope that you will be more productive. You can add websites to a list of sites that will be blocked. You can then select the times of the day that you want the sites to be blocked. The extension was written in JavaScript, with the interface done in HTML and CSS. This was also the first hackathon project I worked on, at UofTHacks.</p>
+            </div>
         </div>
 
         <div id="terraria" class="projectShowcase">
-            <h2><span id="orange">Recreation of Terraria</span></h2>
-            
-            <p>Details and screenshots will be posted tomorrow, sorry! For now, you can view the project on GitHub.</p>
+            <div class="projectTitlePackage">
+                <h2><span id="orange">Recreation of Terraria</span></h2>
+            </div>
             
             <div class="viewInGitHub">
                 <a href="https://github.com/CalvinNhieu/TerrariaHC" target="_blank">View Terraria on GitHub</a>
+            </div>
+            
+            <div class="projectDescription">
+                <img src="img/terraria1.png" alt="Terraria - standing on a hill" style="width:100%; margin-top:0px;">
+                <p>This project was made in Grade 11 by <span id="orange"><a href="https://github.com/CalvinNhieu" target="_blank">Calvin Nhieu</a></span> and I. We wanted to get better at developing games, and decided that the best way to do that would be to recreate a game called Terraria. Terraria is a 2D side-scroller game similar to Minecraft. We stopped working on this project after most of the early features were developed.</p>
+                <img src="img/terraria2.png" alt="Terraria - standing on a hill" style="width:100%;">
+                <p>The game itself was developed in Java using Eclipse (I have since moved onto IntelliJ for Java development :P). The game engine was written from scratch.</p>
+                <img src="img/terraria3.png" alt="Terraria - standing on a hill" style="width:100%;">
+                <p>Some aspects we particularly enjoyed working on were the terrain generation and the enemy artificial intelligence.</p>
             </div>
         </div>
     </div>
@@ -136,7 +174,7 @@
     </div>
 
     <footer>
-        <h2>Website designed and coded by Hamdan Javeed.</h2>
+        <h2>Designed and coded by Hamdan Javeed.</h2>
     </footer>
 </body>
 

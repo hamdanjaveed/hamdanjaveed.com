@@ -6,28 +6,36 @@
 @import "compass/reset";
 @import "compass/css3/border-radius";
 @import "compass/css3/filter";
+@import "compass/css3";
  $cream:#F2F1ED;
  $darkCream:#D9D8D4;
  $lightGrey:#B0B0B0;
  $grey:#909090;
  $orange:#F56015;
  $white:#EEE;
- $brown:#504A46;
+ $brown:#655d58;
 $black: #222;
  $headerHeight:60px;
  $headerWidth:70%;
  $projectBorderRadius:10px;
+$defaultPadding: 4%;
  html {
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     text-align: center;
+    min-width:1120px;
     * {
         transition: color 0.2s ease-in-out;
+        transition: background-color 0.2s ease-in-out;
     }
     
     a {
         text-decoration:none;
         color:inherit;
+    }
+    
+    p {
+        line-height:33px;
     }
 }
 #background {
@@ -96,30 +104,60 @@ header {
     }
 }
 #title {
-    padding: 50px;
+    padding: $defaultPadding;
     h1 {
         font-size: 3em;
     }
 }
 .projectShowcase {
-    padding-bottom: 50px;
+    padding-bottom: $defaultPadding;
+    padding-left:$defaultPadding * 3;
+    padding-right:$defaultPadding * 3;
+    
+    .projectTitlePackage {
+        float:left;
+        text-align:left;
+    }
     
     h2 {
         font-size: 3em;
     }
     
     h3 {
+        margin-top:10px;
         font-size: 2em;
     }
     
+    .viewInGitHub {
+        float:right;
+    }
+    
+    .projectDescription {
+        font-family: 'Alegreya Sans', sans-serif;
+        clear:both;
+        text-align:justify;
+        font-weight:300;
+        padding-top:$defaultPadding;
+        font-size:1.5em;
+        img {
+            margin-top:$defaultPadding;
+            margin-bottom:$defaultPadding;
+        }
+    }
+}
+#about {
+    width:100%;
+    background-color:$cream;
+    padding-bottom:$defaultPadding;
+    
     p {
-        margin-top:50px;
-        font-weight:400;
+        font-family: 'Alegreya Sans', sans-serif;
+        font-size:1.5em;
     }
 }
 #currentWork {
     width: 100%;
-    background-color: $cream;
+    background-color: $darkCream;
     .project {
         display: inline-block;
         position: relative;
@@ -183,27 +221,65 @@ header {
     }
 }
 .viewInGitHub {
-    background-color: $orange;
-    color: $black;
+    background-color: $white;
+    color: $orange;
     padding: 10px;
-    width: 150px;
-//    height:32px;
+    min-width:100px;
+    max-width: 150px;
+    height:28px;
     font-weight: 400;
     margin:0 auto;
-    margin-top:50px;
     @include border-radius($projectBorderRadius, $projectBorderRadius);
+    border:solid thin $orange;
 }
 
 .viewInGitHub:hover {
-    color:$white;
+    background-color: $orange;
+    color: $white;
 }
 
 #technicalExperience {
-    background-color: $cream;
-}
-#personalProjects {
     background-color: $darkCream;
 }
+#personalProjects {
+    background-color: $cream;
+}
+
+#aboutContent {
+    width:70%;
+    margin:0 auto;
+    
+    p {
+        margin-bottom:$defaultPadding;
+    }
+    
+    a {
+        position:relative;
+        padding-right:25px;
+        padding-left:25px;
+        top:0px;
+        transition: all 0.2s ease-in-out;
+        * {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        img {
+            width:64px;
+            height:64px;
+        }
+    }
+    
+    a:hover {
+        top:-5px;
+    }
+    
+    img {
+        width: 256px;
+        border-radius:50px;
+        margin-bottom:$defaultPadding;
+    }
+}
+
 footer {
     background-color: $brown;
     width: 100%;

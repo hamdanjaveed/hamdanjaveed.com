@@ -23,7 +23,7 @@ $defaultPadding: 4%;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     text-align: center;
-    min-width:1120px;
+    min-width:1200px;
     * {
         transition: color 0.2s ease-in-out;
         transition: background-color 0.2s ease-in-out;
@@ -228,7 +228,7 @@ header {
     max-width: 150px;
     height:28px;
     font-weight: 400;
-    margin:0 auto;
+    margin:0 auto 0 20px;
     @include border-radius($projectBorderRadius, $projectBorderRadius);
     border:solid thin $orange;
 }
@@ -288,4 +288,3 @@ footer {
         padding-top: 25px;
         color: $white;
     }
-}

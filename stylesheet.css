@@ -1,0 +1,15 @@
+html {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: #665953;
+    
+    background-color: #EFEAE1;
+}
+
+a {
+    text-decoration: none;
+}
+
+#dark {
+    color: #CC7B75;
+}

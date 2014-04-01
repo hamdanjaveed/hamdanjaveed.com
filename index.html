@@ -1,205 +1,33 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>home</title>
+        
+        <link rel="stylesheet" href="stylesheet.css">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+        
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-<head>
-    <title>home</title>
-    <!-- this link downloads the Source Code Pro font from the google fonts servers -->
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400' rel='stylesheet' type='text/css'>
-
-    <!-- a link to the .css file -->
-    <link type="text/css" rel=stylesheet href="stylesheets/screen.css" />
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-    <script src="smoothscroll.js"></script>
-    <script src="skrollr.min.js"></script>
-
-    <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-43348512-1', 'hamdanjaveed.com');
-        ga('send', 'pageview');
-    </script>
-</head>
-
-<body>
-    <div id="background" data-0="top:0px;" data-500="top:-100;" data-smooth-scrolling="off">
-    </div>
-
-    <header>
-        <div>
-            <h1>
-                <span id="orange">hamdan</span> javeed</h1>
-            <ul>
-                <li>
-                    <a class="smoothScroll" href="#technicalExperience">Experience</a>
-                </li>
-                <li>
-                    <a class="smoothScroll" href="#personalProjects">Projects</a>
-                </li>
-                <li>
-                    <a href="resume.pdf">Resume</a>
-                </li>
-            </ul>
-        </div>
-    </header>
-
-    <div id="landingContainer">
-        <h1 data-0="bottom:-230px; opacity:1.0;" data-500="bottom:-400; opacity:0.0;" data-smooth-scrolling="off">Hi, I'm Hamdan!</h1>
-        <a class="smoothScroll" href="#about" data-0="bottom:-290px; opacity:1.0;" data-500="bottom:-380; opacity:0.0;" data-smooth-scrolling="off">
-            <img src="img/scrollArrow.png">
-        </a>
-    </div>
+            ga('create', 'UA-43348512-1', 'hamdanjaveed.com');
+            ga('send', 'pageview');
+        </script>
+    </head>
     
-    <div id="about">
-        <div id="title">
-            <h1>Who I am</h1>
-        </div>
-        
-        <div id="aboutContent">
-            <img src="img/me.jpg" alt="i really wasnt paying attention in this picture at all :( but whatev :D">
-            
-            <p>Hi! My name's Hamdan. I'm a student studying Software Engineering at the University of Waterloo. Below you can checkout my LinkedIn and GitHub profiles, or send me an email.</p>
-        
-            <a href="https://github.com/hamdanjaveed" target="_blank"><img src="img/github.png" alt="GitHub"></a>
-            <a href="http://www.linkedin.com/in/hamdanjaveed" target="_blank"><img src="img/linkedin.png" alt="LinkedIn"></a>
-            <a href="mailto:hamdan@hamdanjaveed.com"><img src="img/email.png" alt="E-mail"></a>
-        </div>
-    </div>
-
-    <div id="technicalExperience">
-        <div id="title">
-            <h1>My Technical Experience</h1>
-        </div>
-
-        <div id="uwaft" class="projectShowcase">
-            <div class="projectTitlePackage">
-                <h2><span id="orange">Web Developer</span></h2>
-                <h3>University of Waterloo Alternative Fuels Team</h3>
-            </div>
-            
-            <div class="viewInGitHub">
-                <a href="https://github.com/hamdanjaveed/UWAFT-Website" target="_blank">View UWAFT on GitHub</a>
-            </div>
-            
-            <div class="projectDescription">
-                <p>The University of Waterloo Alternative Fuels Team approached our class of Software Engineers and asked us to redesign their old website. The main problem with the old website was that it was just too boring and bland. A few of us took the challenge and started to design and implement a new website. I worked with a peer to design and implement the home page of the website. The website used HTML, CSS and JavaScript. We used JQuery as well as the JQuery color plugin to animate colors.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="smoothScroll" data-smooth-scrolling="off" id="personalProjects">
-        <div id="title">
-            <h1>My Personal Projects</h1>
-        </div>
-
-        <div id="timerForRubiksCube" class="projectShowcase">
-            <div class="projectTitlePackage">
-                <h2><span id="orange">Timer for Rubik's Cube</span></h2>
-            </div>
-            
-            <div class="viewInGitHub">
-                <a href="https://github.com/hamdanjaveed/Timer-for-Rubik-s-Cube" target="_blank">View project on GitHub</a>
-            </div>
-            
-            <div class="viewInGitHub">
-                <a href="https://itunes.apple.com/us/app/timer-for-rubiks-cube/id783217916?ls=1&mt=8" target="_blank">View project on the App Store</a>
-            </div>
-            
-            <div class="projectDescription">
-                <div style="text-align:center;">
-                    <img src="img/timer1.png" alt="Timer for Rubik's Cube - tap to start" style="height: 500px; margin-top:0px;">
-                </div>
-                <p>Timer for Rubik's Cube is my first iOS app on the App Store. I developed the app to log and track 3x3 Rubik's Cube solves. A random scramble is generated every solve.</p>
-                <div style="text-align:center;">
-                    <img src="img/timer2.png" alt="Timer for Rubik's Cube - inspection" style="height: 500px;">
-                </div>
-                <p>The app has support for inspection time that can be adjusted from 0 seconds to a minute.</p>
-                <div style="text-align:center;">
-                    <img src="img/timer4.png" alt="Timer for Rubik's Cube - list of solves" style="height: 500px;">
-                </div>
-                <p>It stores your times so that you can view them at a later date, as well as giving you the most important statistics about your solves in general. You can email your times to yourself so you have a list of times available on your computer.</p>
-            </div>
-        </div>
-
-        <div id="snippets" class="projectShowcase">
-            <div class="projectTitlePackage">
-                <h2><span id="orange">Snippets</span></h2>
-            </div>
-            
-            <div class="viewInGitHub">
-                <a href="https://github.com/hamdanjaveed/Snippets" target="_blank">View project on GitHub</a>
-            </div>
-            
-            <div class="projectDescription">
-                <p>Snippets is a code snippet extension written for the Brackets code editor. It will respond to keywords (that you specify) through a command. The keyword gets replaced by some snippet of code.</p>
-            </div>
-        </div>
-
-        <div id="workathon" class="projectShowcase">
-            <div class="projectTitlePackage">
-                <h2><span id="orange">Workathon</span></h2>
-            </div>
-            
-            <div class="viewInGitHub">
-                <a href="https://github.com/gabrielwong/Workathon" target="_blank">View project on GitHub</a>
-            </div>
-            
-            <div class="projectDescription">
-                <div style="text-align:center;">
-                    <img src="img/workathon1.png" alt="Workathon - Google Chrome toolbar" style="width:60%; margin-top:0;">
-                </div>
-                <p>Workathon is a Google Chrome extension that blocks distracting websites in the hope that you will be more productive. You can add websites to a list of sites that will be blocked.</p>
-                <img src="img/workathon2.png" alt="Terraria - a cave opening" style="width:100%;">
-                <p>You can then select the times of the day that you want the sites to be blocked.</p>
-                <img src="img/workathon3.png" alt="Terraria - a cave opening" style="width:100%;">
-                <p>The extension was written in JavaScript, with the interface done in HTML and CSS. This was also the first hackathon project I worked on, at UofTHacks.</p>
-                <div style="text-align:center;">
-                    <img src="img/workathon4.png" alt="Terraria - a cave opening">
-                </div>
-            </div>
-        </div>
-
-        <div id="terraria" class="projectShowcase">
-            <div class="projectTitlePackage">
-                <h2><span id="orange">Recreation of Terraria</span></h2>
-            </div>
-            
-            <div class="viewInGitHub">
-                <a href="https://github.com/CalvinNhieu/TerrariaHC" target="_blank">View project on GitHub</a>
-            </div>
-            
-            <div class="projectDescription">
-                <img src="img/terraria1.png" alt="Terraria - standing on a hill" style="width:100%; margin-top:0px;">
-                <p>This project was made in Grade 11 by <span id="orange"><a href="https://github.com/CalvinNhieu" target="_blank">Calvin Nhieu</a></span> and I. We wanted to get better at developing games, and decided that the best way to do that would be to recreate a game called Terraria. Terraria is a 2D side-scroller game similar to Minecraft. We stopped working on this project after most of the early features were developed.</p>
-                <img src="img/terraria2.png" alt="Terraria - a cave opening" style="width:100%;">
-                <p>The game itself was developed in Java using Eclipse (I have since moved onto IntelliJ for Java development :P). The game engine was written from scratch.</p>
-                <img src="img/terraria3.png" alt="Terraria - digging ores" style="width:100%;">
-                <p>Some aspects we particularly enjoyed working on were the terrain generation and the enemy artificial intelligence.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="currentWork">
-        <div id="title">
-            <h1>What I'm working on</h1>
-        </div>
-    </div>
-
-    <footer>
-        <h2>Designed and coded by Hamdan Javeed.</h2>
-    </footer>
-</body>
-
+    <body>
+        <h1>so i didn't like my old website ...</h1>
+        <h1>... and i put it <a href="revision1/index.html">here</a></h1>
+        <br />
+        <h1>oh, and a new one is <span id="dark">coming shortly</span></h1>
+    </body>
 </html>

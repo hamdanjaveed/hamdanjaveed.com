@@ -91,7 +91,7 @@ html p {
 
 /* line 41, ../sass/screen.scss */
 #background {
-  background-image: url("/img/landingImage.png");
+  background-image: url("/revision1/img/landingImage.png");
   background-size: cover;
   background-position: 50% 50%;
   position: fixed;

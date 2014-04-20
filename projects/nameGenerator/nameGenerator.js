@@ -51,6 +51,9 @@ $(document).ready(function() {
             $("p").animate({opacity: 1}, 1000);
         }
     }, 2000);
+    
+    $("#nameContainer").fitText();
+    $("#tipContainer").fitText();
 });
 
 function newName() {

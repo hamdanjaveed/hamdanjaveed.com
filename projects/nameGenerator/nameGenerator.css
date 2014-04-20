@@ -1,99 +1,31 @@
 @import url(http://fonts.googleapis.com/css?family=Quicksand:300,400);
 
-html {
+body {
+    text-align: center;
+    
     background-color: #3F3F3F;
     color: #E46A6B;
     
-    text-align: center;
     font-family: 'Quicksand', sans-serif;
 }
 
 h1 {
     /* style */
-    font-size: 7em;
+    font-size: 1em;
     font-weight: 300;
-    
-    /* centering vertically */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    top: 0;
-    left: 0;
-    line-height: 6.7em;
 }
 
 p {
     /* style */
-    font-size: 2em;
+    font-size: 0.3em;
     font-weight: 400;
     
-    /* centering vertically */
-    position: absolute;
-    width: 100%;
-    margin: auto;
-    top: 500px;
-    left: 0;
-    line-height: 2em;
-    
-    /* for the fancy */
+    /* fancy++ */
     color: #388E8E;
     opacity: 0;
 }
 
-@media only screen and (max-width: 1200px) {
-    h1 {
-        /* style */
-        font-size: 5em;
-        line-height: 9em;
-    }
-    
-    p {
-        /* style */
-        font-size: 1.5em;
-        line-height: 1.5em;
-        opacity: 0;
-    }
-}
-
-@media only screen and (max-width: 900px) {
-    h1 {
-        /* style */
-        font-size: 4em;
-        line-height: 11.5em;
-    }
-    
-    p {
-        /* style */
-        font-size: 1.25em;
-        line-height: 1.25em;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    h1 {
-        /* style */
-        font-size: 3em;
-        line-height: 15em;
-    }
-    
-    p {
-        /* style */
-        font-size: 1em;
-        line-height: 1em;
-    }
-}
-
-@media only screen and (max-width: 520px) {
-    h1 {
-        /* style */
-        font-size: 2em;
-        line-height: 23em;
-    }
-    
-    p {
-        /* style */
-        font-size: 1em;
-        line-height: 1em;
-    }
+#tipContainer {
+    width: 70%;
+    margin: auto;
 }

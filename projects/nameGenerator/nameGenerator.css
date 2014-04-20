@@ -1,0 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Quicksand:300);
+
+html {
+    background-color: #3F3F3F;
+    color: #E46A6B;
+    
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    /* style */
+    font-size: 4em;
+    
+    /* centering vertically */
+    position: absolute;
+    width: 100%;
+    
+    margin: auto;
+    margin-top: -100px;
+    
+    top: 50%;
+    left: 0;
+    
+    line-height: 200px;
+}

@@ -1,4 +1,4 @@
-/* words taken from Adrien Friggeri (afriggeri, https://gist.github.com/afriggeri) */
+/* some words taken from Adrien Friggeri (afriggeri, https://gist.github.com/afriggeri) */
 
 var adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark",
     "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter",
@@ -8,7 +8,7 @@ var adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry
     "red", "rough", "still", "small", "sparkling", "throbbing", "shy",
     "wandering", "withered", "wild", "black", "young", "holy", "solitary",
     "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine",
-    "polished", "ancient", "purple", "lively", "nameless"];
+    "polished", "ancient", "purple", "lively", "nameless", "blessed", "light"];
 
 var nouns = ["waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning",
     "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter",
@@ -18,7 +18,7 @@ var nouns = ["waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "mor
     "snowflake", "silence", "sound", "sky", "shape", "surf", "thunder",
     "violet", "water", "wildflower", "wave", "water", "resonance", "sun",
     "wood", "dream", "cherry", "tree", "fog", "frost", "voice", "paper",
-    "frog", "smoke", "star"];
+    "frog", "smoke", "star", "child", "twine", "planet", "earth"];
 
 var didPress = false;
 
@@ -33,6 +33,16 @@ $(document).ready(function() {
 
             newName();
         }
+    });
+    
+    document.addEventListener("touchstart", function(e) {
+        e.preventDefault();
+        if (!didPress) {
+            didPress = true;
+            $("p").animate({opacity: 0}, 1000);
+        }
+
+        newName();
     });
     
     // tell the user that they can press any key

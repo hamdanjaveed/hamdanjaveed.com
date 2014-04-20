@@ -1,3 +1,5 @@
+/* --------------- section 0: general --------------- */
+
 body {
     /* color */
     background-color: #EFEAE1;
@@ -8,10 +10,11 @@ body {
     text-align: center;
 }
 
-/* links */
+/* --------------- section 1: construction --------------- */
+
 a {
     text-decoration: none;
-    color: inherit;
+    color: #388E8E;
 }
 
 a:hover {
@@ -22,15 +25,17 @@ a:visited {
     color: #388E8E;
 }
 
-#blue {
-    color: #388E8E;
-}
-
 /* its close enough to orange ok >:| */
-#orange {
+.orange {
     color: #CC7B75;
 }
 
-#lineThrough {
+.lineThrough {
     text-decoration: line-through;
+}
+
+/* --------------- section 2: what i'm working on --------------- */
+
+.title {
+    text-decoration: underline;
 }

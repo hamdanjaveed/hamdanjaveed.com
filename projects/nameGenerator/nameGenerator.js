@@ -20,13 +20,27 @@ var nouns = ["waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "mor
     "wood", "dream", "cherry", "tree", "fog", "frost", "voice", "paper",
     "frog", "smoke", "star"];
 
+var didPress = false;
+
 $(document).ready(function() {
     newName();
     $(document).keydown(function(key) {
         if (key.keyCode == '32') {
+            if (!didPress) {
+                didPress = true;
+                $("p").animate({opacity: 0}, 1000);
+            }
+
             newName();
         }
     });
+    
+    // tell the user that they can press any key
+    setTimeout(function() {
+        if (!didPress) {
+            $("p").animate({opacity: 1}, 1000);
+        }
+    }, 2000);
 });
 
 function newName() {

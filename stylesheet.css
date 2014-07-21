@@ -1,9 +1,17 @@
 body {
     /* color */
-    background-color: #EFEAE1;
+    background-color: #E7E2D9 ;
     color: #665953;
 
     /* text */
     font-family: 'Exo 2', sans-serif;
     text-align: center;
+}
+
+#header {
+    background-color: #F3F3F3;
+
+    height: 300px;
+    margin-top: -150px;
+    border-radius: 100%;
 }

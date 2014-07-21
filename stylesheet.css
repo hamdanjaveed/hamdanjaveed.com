@@ -1,41 +1,9 @@
-/* --------------- section 0: general --------------- */
-
 body {
     /* color */
     background-color: #EFEAE1;
     color: #665953;
-    
+
     /* text */
-    font-family: "Quicksand", sans-serif;
+    font-family: "Exo+2", sans-serif;
     text-align: center;
-}
-
-/* --------------- section 1: construction --------------- */
-
-a {
-    text-decoration: none;
-    color: #388E8E;
-}
-
-a:hover {
-    border-bottom: #388E8E solid thin;
-}
-
-a:visited {
-    color: #388E8E;
-}
-
-/* its close enough to orange ok >:| */
-.orange {
-    color: #CC7B75;
-}
-
-.lineThrough {
-    text-decoration: line-through;
-}
-
-/* --------------- section 2: what i'm working on --------------- */
-
-.title {
-    text-decoration: underline;
 }

@@ -10,8 +10,9 @@ body {
 
 #header {
     background-color: #F3F3F3;
+    padding: 16px;
+}
 
-    height: 300px;
-    margin-top: -150px;
-    border-radius: 100%;
+.bigTitle {
+    font-size: 2em;
 }

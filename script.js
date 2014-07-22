@@ -12,7 +12,7 @@ $.ajax({
                     </div>\
                 </a>';
 
-            $("#currentWork").append(project);
+            $("#githubFeed").append(project);
         }
     }
 });

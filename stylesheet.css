@@ -16,6 +16,15 @@ body {
 
     font-family: 'Exo 2', sans-serif;
     text-align: center;
+
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.ribbon {
+    background-color: #F15513;
+    height: 4px;
 }
 
 #header {
@@ -25,6 +34,22 @@ body {
 
 .bigTitle {
     font-size: 2em;
+    display: inline;
+}
+
+#me {
+    width: 32px;
+    border-radius: 100%;
+    border: thin solid #665953;
+    display: inline;
+    position: absolute;
+    margin-left: 16px;
+}
+
+#me {
+    width: 32px;
+    border-radius: 100%;
+    border: thin solid #665953;
 }
 
 #socialBar {
@@ -56,8 +81,8 @@ body {
     transition: 0.5s;
 }
 
-#appstore:hover {color: #bdc3c7}
-#email:hover {color: #e74c3c}
-#github:hover {color: #27ae60}
-#linkedin:hover {color: #2980b9}
-#stackoverflow:hover {color: #e67e22}
+#appstore:hover {color: #BDC3C7}
+#email:hover {color: #E74C3C}
+#github:hover {color: #27AE60}
+#linkedin:hover {color: #2980B9}
+#stackoverflow:hover {color: #E67E22}

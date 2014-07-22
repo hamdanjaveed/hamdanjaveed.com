@@ -3,18 +3,19 @@
     <head>
         <title>home</title>
 
-        <link href='http://fonts.googleapis.com/css?family=Lato:300|Exo+2:200' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:300|Exo+2:100,200' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-        <link rel="stylesheet" href="stylesheet.css">
+
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
-       <div class="ribbon" style="background-color: #F15513"></div>
+        <div class="ribbon" style="background-color: #F15513"></div>
 
-        <div id="header">
+        <header>
             <h1 class="bigTitle">hamdan javeed</h1>
             <img src="images/me.png" alt="A picture of me!" id="me">
-        </div>
+        </header>
 
         <div id="socialBar">
             <span class="socialIcon" id="appstore"><a href="https://itunes.apple.com/au/artist/hamdan-javeed/id687555177" target="_blank">appstore</a></span>
@@ -24,7 +25,17 @@
             <span class="socialIcon" id="stackoverflow"><a href="http://stackoverflow.com/users/1363221/flubadoodoo" target="_blank">stackoverflow</a></span>
         </div>
 
-        <div class="ribbon" style="background-color: #B3A6A0  "></div>
+        <!--<div class="ribbon" style="background-color: #B3A6A0  "></div>--> <!-- Conflicted about this ribbon -->
+
+        <div id="currentWork">
+            <div id="currentWorkTitle">
+                <h1 class="bigTitle">what i'm working on</h1>
+            </div>
+        </div>
+
+        <footer>
+            <h2>designed and coded by hamdan javeed</h2>
+        </footer>
 
         <!-- Google Analytics --->
         <script>
@@ -46,5 +57,7 @@
 
         <!-- jQuery -->
         <script src="http://code.jquery.com/jquery.js"></script>
+
+        <script src="script.js"></script>
     </body>
 </html>

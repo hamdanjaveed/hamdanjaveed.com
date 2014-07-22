@@ -16,14 +16,9 @@ body {
 
     font-family: 'Exo 2', sans-serif;
     text-align: center;
-
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
 }
 
 .ribbon {
-    background-color: #F15513;
     height: 4px;
 }
 
@@ -78,11 +73,11 @@ body {
 }
 
 .socialIcon:hover {
-    transition: 0.5s;
+    cursor: pointer;
 }
 
-#appstore:hover {color: #BDC3C7}
-#email:hover {color: #E74C3C}
-#github:hover {color: #27AE60}
+#appstore:hover {color: #B69C22}
+#email:hover {color: #c0392b}
+#github:hover {color: #1E824C}
 #linkedin:hover {color: #2980B9}
 #stackoverflow:hover {color: #E67E22}

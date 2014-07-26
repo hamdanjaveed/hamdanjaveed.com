@@ -88,93 +88,67 @@ header h1 {
     background-color: #d9d8d4;
     font-family: "Exo 2", sans-serif;
     font-weight: 100;
-}
-/* line 161, ../sass/screen.scss */
-#githubFeed .project {
-    display: inline-block;
-    position: relative;
-    background-color: #f2f1ed;
-    top: 0px;
-    width: 128px;
-    height: 128px;
-    margin: 0 auto;
-    border: 2px #b0b0b0 solid;
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-bottom: 60px;
-    transition: all 0.2s ease-in-out;
-    -webkit-border-radius: 10px 10px;
-    -moz-border-radius: 10px / 10px;
-    border-radius: 10px / 10px;
-}
-/* line 174, ../sass/screen.scss */
-#githubFeed .project * {
-    transition: all 0.2s ease-in-out;
-}
-/* line 179, ../sass/screen.scss */
-#githubFeed .project h2 {
-    font-size: 1em;
-    padding: 20px;
-    margin: 0 auto;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    color: black;
-}
-/* line 188, ../sass/screen.scss */
-#githubFeed .project img {
-    -webkit-border-radius: 10px 10px;
-    -moz-border-radius: 10px / 10px;
-    border-radius: 10px / 10px;
-}
-/* line 191, ../sass/screen.scss */
-#githubFeed .project h1 {
-    font-size: 2em;
-    color: #655d58;
-}
-/* line 195, ../sass/screen.scss */
-#githubFeed .project .projectDescription {
-    opacity: 0.0;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: inherit;
-    height: inherit;
-    background-color: rgba(101, 93, 88, 0.5);
-    -webkit-border-radius: 10px 10px;
-    -moz-border-radius: 10px / 10px;
-    border-radius: 10px / 10px;
-}
-/* line 204, ../sass/screen.scss */
-#githubFeed .project .projectDescription p {
-    text-decoration: none;
-    color: #eeeeee;
-    font-size: 2em;
-    padding: 20px;
-}
-/* line 212, ../sass/screen.scss */
-#githubFeed .project:hover {
-    top: -10px;
-    border: 2px #f56015 solid;
-}
-/* line 215, ../sass/screen.scss */
-#githubFeed .project:hover h1 {
-    -webkit-filter: blur(4px);
-    -moz-filter: blur(4px);
-    filter: blur(4px);
+
+    #githubFeedTitle {
+        padding: 32px;
+    }
+
+    .project {
+        display: inline-block;
+        position: relative;
+        background-color: #f2f1ed;
+        top: 0px;
+        width: 128px;
+        height: 128px;
+        margin: 0 auto;
+        border: 2px #b0b0b0 solid;
+        margin-right: 30px;
+        margin-left: 30px;
+        margin-bottom: 60px;
+        transition: all 0.2s ease-in-out;
+        -webkit-border-radius: 10px 10px;
+        -moz-border-radius: 10px / 10px;
+        border-radius: 10px / 10px;
+
+        &:hover {
+            top: -10px;
+            border: 2px #f56015 solid;
+
+            h1 {
+                -webkit-filter: blur(4px);
+                -moz-filter: blur(4px);
+                filter: blur(4px);
+            }
+        }
+
+        * {
+            transition: all 0.2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #655d58;
+        }
+
+        h2 {
+            font-size: 1em;
+            padding: 20px;
+            margin: 0 auto;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            color: black;
+        }
+    }
 }
 
 footer {
     background-color: #655d58;
     width: 100%;
     height: 60px;
-}
 
-footer h2 {
-    padding-top: 25px;
-    color: #eeeeee;
-}
-
-#githubFeedTitle {
-    padding: 32px;
+    h2 {
+        padding-top: 25px;
+        color: #eeeeee;
+    }
 }

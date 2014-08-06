@@ -10,17 +10,14 @@ body {
 }
 
 h1 {
-    /* style */
     font-size: 1em;
     font-weight: 300;
+    opacity: 0;
 }
 
 p {
-    /* style */
     font-size: 0.3em;
     font-weight: 400;
-    
-    /* fancy++ */
     color: #388E8E;
     opacity: 0;
 }
@@ -29,3 +26,4 @@ p {
     width: 70%;
     margin: auto;
 }
+

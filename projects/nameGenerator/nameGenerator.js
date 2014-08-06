@@ -1,59 +1,50 @@
 /* some words taken from Adrien Friggeri (afriggeri, https://gist.github.com/afriggeri) */
 
-var adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark",
-    "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter",
-    "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue",
-    "billowing", "broken", "cold", "damp", "falling", "frosty", "green",
-    "long", "late", "lingering", "bold", "little", "morning", "muddy", "old",
-    "red", "rough", "still", "small", "sparkling", "throbbing", "shy",
-    "wandering", "withered", "wild", "black", "young", "holy", "solitary",
-    "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine",
-    "polished", "ancient", "purple", "lively", "nameless", "blessed", "light"];
-
-var nouns = ["waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning",
-    "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter",
-    "forest", "hill", "cloud", "meadow", "sun", "glade", "bird", "brook",
-    "butterfly", "bush", "dew", "dust", "field", "fire", "flower", "firefly",
-    "feather", "grass", "haze", "mountain", "night", "pond", "darkness",
-    "snowflake", "silence", "sound", "sky", "shape", "surf", "thunder",
-    "violet", "water", "wildflower", "wave", "water", "resonance", "sun",
-    "wood", "dream", "cherry", "tree", "fog", "frost", "voice", "paper",
-    "frog", "smoke", "star", "child", "twine", "planet", "earth"];
-
+var adjectives = ["something's"];
+var nouns = ["wrong"];
 var didPress = false;
 
 $(document).ready(function() {
-    newName();
-    $(document).keydown(function(key) {
-        if (key.keyCode == '32') {
-            if (!didPress) {
-                didPress = true;
-                $("p").animate({opacity: 0}, 1000);
-            }
+    $.get("adjectives.txt", function(listOfAdjectives) {
+        adjectives = listOfAdjectives.split("\n");
+        $.get("nouns.txt", function(listOfNouns) {
+            nouns = listOfNouns.split("\n");
 
             newName();
-        }
-    });
-    
-    document.addEventListener("touchstart", function(e) {
-        e.preventDefault();
-        if (!didPress) {
-            didPress = true;
-            $("p").animate({opacity: 0}, 1000);
-        }
+            $("#name").animate({opacity: 1}, 250);
 
-        newName();
+            $(document).keydown(function(key) {
+                if (key.keyCode == '32') {
+                    if (!didPress) {
+                        didPress = true;
+                        $("p").animate({opacity: 0}, 1000);
+                    }
+
+                    newName();
+                }
+            });
+
+            document.addEventListener("touchstart", function(e) {
+                e.preventDefault();
+                if (!didPress) {
+                    didPress = true;
+                    $("p").animate({opacity: 0}, 1000);
+                }
+
+                newName();
+            });
+
+            // tell the user that they can press any key
+            setTimeout(function() {
+                if (!didPress) {
+                    $("p").animate({opacity: 1}, 1000);
+                }
+            }, 2000);
+
+            $("#nameContainer").fitText();
+            $("#tipContainer").fitText();
+        });
     });
-    
-    // tell the user that they can press any key
-    setTimeout(function() {
-        if (!didPress) {
-            $("p").animate({opacity: 1}, 1000);
-        }
-    }, 2000);
-    
-    $("#nameContainer").fitText();
-    $("#tipContainer").fitText();
 });
 
 function newName() {
@@ -71,3 +62,4 @@ function generateName() {
 function capitalizeFirstLetter(s) {
     return s.charAt(0).toUpperCase() + s.slice(1);
 }
+

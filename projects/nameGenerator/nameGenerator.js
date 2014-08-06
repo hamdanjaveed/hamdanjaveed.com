@@ -7,8 +7,10 @@ var didPress = false;
 $(document).ready(function() {
     $.get("adjectives.txt", function(listOfAdjectives) {
         adjectives = listOfAdjectives.split("\n");
+        adjectives.pop();
         $.get("nouns.txt", function(listOfNouns) {
             nouns = listOfNouns.split("\n");
+            nouns.pop();
 
             newName();
             $("#name").animate({opacity: 1}, 250);

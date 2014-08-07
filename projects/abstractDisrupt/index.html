@@ -41,7 +41,22 @@
             }
 
             var player = new Player();
-            player.draw();
+
+            function draw() {
+                player.draw();
+            }
+
+            draw();
+
+            document.addEventListener("keydown", function(e) {
+                if (e.keyCode === 39) {
+                    console.log("Right");
+                }
+
+                if (e.keyCode === 37) {
+                    console.log("Left");
+                }
+            });
         </script>
     </body>
 </html>

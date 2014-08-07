@@ -16,6 +16,7 @@ brittle
 broken
 caustic
 cold
+colossal
 cool
 crimson
 crooked
@@ -23,6 +24,7 @@ damp
 dark
 dawn
 delicate
+dilligent
 divine
 dry
 dusty
@@ -35,10 +37,13 @@ fragrant
 frosty
 gray
 green
+hallowed
 hardened
 hidden
+hollow
 holy
 icy
+jaded
 late
 lazy
 light

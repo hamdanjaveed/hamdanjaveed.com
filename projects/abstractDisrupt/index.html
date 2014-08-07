@@ -16,7 +16,7 @@
     </head>
 
     <body>
-        <canvas id="canvas" width="512" height="460"></canvas>
+        <canvas id="canvas"></canvas>
 
         <script>
             (function() {
@@ -46,17 +46,17 @@
 
             var canvas = document.getElementById("canvas");
             var context = canvas.getContext("2d");
-            var width = 512;
-            var height = parseInt(width/1.111111111); // ratio of the game boy screen (160 x 144)
+            canvas.width = 100; // all values in the game are with respect to this
+            canvas.height = parseInt(canvas.width / 1.111111111); // ratio of the game boy screen (160 x 144)
 
             var lastTime;
 
             function Player() {
-                var speed = 100;
+                var speed = canvas.width / 5;
 
-                this.size = width/32;
-                this.x = width/2 - this.size/2;
-                this.y = height/2 - this.size/2;
+                this.size = canvas.width / 32;
+                this.x = canvas.width / 2 - this.size / 2;
+                this.y = canvas.height / 2 - this.size / 2;
 
                 this.right = false;
                 this.left = false;
@@ -97,7 +97,7 @@
             }
 
             function draw() {
-                context.clearRect(0, 0, width, height);
+                context.clearRect(0, 0, canvas.width, canvas.height);
                 player.draw();
             }
 

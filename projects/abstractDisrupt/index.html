@@ -19,14 +19,42 @@
         <canvas id="canvas" width="512" height="460"></canvas>
 
         <script>
+            (function() {
+                var lastTime = 0;
+                    var vendors = ['ms', 'moz', 'webkit', 'o'];
+                for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+                    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+                    window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+                                               || window[vendors[x]+'CancelRequestAnimationFrame'];
+                }
+
+                if (!window.requestAnimationFrame)
+                    window.requestAnimationFrame = function(callback, element) {
+                        var currTime = new Date().getTime();
+                        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+                          timeToCall);
+                        lastTime = currTime + timeToCall;
+                        return id;
+                    };
+
+                if (!window.cancelAnimationFrame)
+                    window.cancelAnimationFrame = function(id) {
+                        clearTimeout(id);
+                    };
+            }());
+
             var canvas = document.getElementById("canvas");
             var context = canvas.getContext("2d");
             var width = 512;
-            var height = parseInt(width/1.111111111);
+            var height = parseInt(width/1.111111111); // ratio of the game boy screen (160 x 144)
+
+            var lastTime;
 
             function Player() {
-                this.size = width/32;
+                var speed = 100;
 
+                this.size = width/32;
                 this.x = width/2 - this.size/2;
                 this.y = height/2 - this.size/2;
 
@@ -38,24 +66,47 @@
                     context.fill();
                     context.stroke();
                 }
+
+                this.update = function(delta) {
+                    if (this.right) this.x += speed * delta;
+                    if (this.left) this.x -= speed * delta;
+                }
             }
 
             var player = new Player();
 
+            function loop() {
+                requestAnimationFrame(loop);
+
+                update();
+                draw();
+            } loop();
+
+            function update() {
+                var currentTime = new Date().getTime();
+                var delta = (currentTime - (lastTime || currentTime)) / 1000;
+                lastTime = currentTime;
+                player.update(delta);
+            }
+
+            window.onblur = function() {
+                player.right = false;
+                player.left = false;
+            }
+
             function draw() {
+                context.clearRect(0, 0, width, height);
                 player.draw();
             }
 
-            draw();
-
             document.addEventListener("keydown", function(e) {
-                if (e.keyCode === 39) {
-                    console.log("Right");
-                }
+                if (e.keyCode === 39) player.right = true;
+                if (e.keyCode === 37) player.left = true;
+            });
 
-                if (e.keyCode === 37) {
-                    console.log("Left");
-                }
+            document.addEventListener("keyup", function(e) {
+                if (e.keyCode === 39) player.right = false;
+                if (e.keyCode === 37) player.left = false;
             });
         </script>
     </body>

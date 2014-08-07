@@ -10,6 +10,7 @@ child
 cloud
 darkness
 dawn
+delta
 dew
 dream
 dust

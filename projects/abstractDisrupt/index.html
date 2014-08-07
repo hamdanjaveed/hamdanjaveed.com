@@ -77,8 +77,8 @@
                 var speed = canvas.width / 1000;
 
                 this.size = canvas.width / 32;
-                this.x = 0.5;
-                this.y = 0.5;
+                this.x = 0.5 - (this.size / 2) / canvas.width;
+                this.y = 0.5 - (this.size / 2) / canvas.height;
 
                 this.right = false;
                 this.left = false;
@@ -88,7 +88,7 @@
                 this.draw = function() {
                     context.beginPath();
                     context.rect(canvas.width * this.x, canvas.height * this.y, this.size, this.size);
-                    context.fillStyle = "#c74b28";
+                    context.fillStyle = "#C74B28";
                     context.strokeStyle = "#CF5330";
                     context.fill();
                     context.stroke();
@@ -104,12 +104,23 @@
 
             var player = new Player();
 
+            function startGame() {
+                document.removeEventListener("keydown", menuKeyDownListener);
+
+                document.addEventListener("keydown", gameKeyDownListener);
+                document.addEventListener("keyup", gameKeyUpListener);
+
+                player = new Player();
+
+                requestAnimationFrame(loop);
+            }
+
             function loop() {
                 requestAnimationFrame(loop);
 
                 update();
                 draw();
-            } loop();
+            }
 
             function update() {
                 var currentTime = new Date().getTime();
@@ -128,23 +139,50 @@
                 player.left = false;
             }
 
-            document.addEventListener("keydown", function(e) {
+            function gameKeyDownListener(e) {
                 if (e.keyCode === 37) player.left = true;
                 if (e.keyCode === 38) player.up = true;
                 if (e.keyCode === 39) player.right = true;
                 if (e.keyCode === 40) player.down = true;
-            });
+                if (e.keyCode === 27) mainMenu();
+            }
 
-            document.addEventListener("keyup", function(e) {
+            function gameKeyUpListener(e) {
                 if (e.keyCode === 37) player.left = false;
                 if (e.keyCode === 38) player.up = false;
                 if (e.keyCode === 39) player.right = false;
                 if (e.keyCode === 40) player.down = false;
-            });
+            }
 
             function changeCanvasSize(e) {
                 canvas.width = 160 * e;
                 canvas.height = parseInt(canvas.width / 1.111111111);
+                player.size = canvas.width / 32;
+            }
+
+            function mainMenu() {
+                document.removeEventListener("keydown", gameKeyDownListener);
+                document.removeEventListener("keyup", gameKeyUpListener);
+
+                document.addEventListener("keydown", menuKeyDownListener);
+
+                requestAnimationFrame(mainMenuLoop);
+            } mainMenu();
+
+            function mainMenuLoop() {
+                requestAnimationFrame(mainMenuLoop);
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillStyle = "orange";
+                context.font = "2em Helvetica Neue";
+                context.textAlign = "center";
+                context.fillText("menu", canvas.width / 2, canvas.height / 2);
+            }
+
+            function menuKeyDownListener(e) {
+                if (e.keyCode === 32) {
+                    startGame();
+                }
             }
         </script>
     </body>

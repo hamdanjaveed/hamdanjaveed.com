@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>abstract disrupt</title>
+
+        <style>
+            body {
+                text-align: center;
+                background-color: #2d3638;
+            }
+
+            canvas {
+                background-color: #1c444f;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="canvas" width="512" height="460"></canvas>
+
+        <script>
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            var width = 512;
+            var height = parseInt(width/1.111111111);
+
+            function Player() {
+                this.size = width/32;
+
+                this.x = width/2 - this.size/2;
+                this.y = height/2 - this.size/2;
+
+                this.draw = function() {
+                    context.beginPath();
+                    context.rect(this.x, this.y, this.size, this.size);
+                    context.fillStyle = "#c74b28";
+                    context.strokeStyle = "#CF5330";
+                    context.fill();
+                    context.stroke();
+                }
+            }
+
+            var player = new Player();
+            player.draw();
+        </script>
+    </body>
+</html>

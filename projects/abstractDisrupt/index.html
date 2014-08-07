@@ -30,6 +30,9 @@
                 this.x = width/2 - this.size/2;
                 this.y = height/2 - this.size/2;
 
+                this.right = false;
+                this.left = false;
+
                 this.draw = function() {
                     context.beginPath();
                     context.rect(this.x, this.y, this.size, this.size);
@@ -38,23 +41,58 @@
                     context.fill();
                     context.stroke();
                 }
+
+                this.update = function() {
+                    if (this.right) this.x += 1;
+                    if (this.left) this.x -= 1;
+                }
             }
 
             var player = new Player();
 
+            function update() {
+                player.update();
+            }
+
             function draw() {
+                context.clearRect(0, 0, width, height);
                 player.draw();
             }
 
-            draw();
+            var FPS = 60;
+            window.requestAnimFrame = (function(){
+              return  window.requestAnimationFrame ||
+                  window.webkitRequestAnimationFrame ||
+                  window.mozRequestAnimationFrame ||
+                  function(callback){
+                    window.setTimeout(callback, 1000/FPS);
+                  }
+            })();
+
+            function loop() {
+                requestAnimFrame(loop);
+                update();
+                draw();
+            }
+            loop();
 
             document.addEventListener("keydown", function(e) {
                 if (e.keyCode === 39) {
-                    console.log("Right");
+                    player.right = true;
                 }
 
                 if (e.keyCode === 37) {
-                    console.log("Left");
+                    player.left = true;
+                }
+            });
+
+            document.addEventListener("keyup", function(e) {
+                if (e.keyCode === 39) {
+                    player.right = false;
+                }
+
+                if (e.keyCode === 37) {
+                    player.left = false;
                 }
             });
         </script>

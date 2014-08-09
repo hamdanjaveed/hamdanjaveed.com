@@ -4,6 +4,9 @@
         <title>abstract disrupt</title>
 
         <style>
+            @import url("reset.css");
+            @import url("foundation.min.css");
+
             body {
                 text-align: center;
                 background-color: #2d3638;
@@ -12,89 +15,178 @@
             canvas {
                 background-color: #1c444f;
             }
+
+            .row {
+                width: 256px;
+                margin: 0 auto;
+            }
         </style>
     </head>
 
     <body>
-        <canvas id="canvas" width="512" height="460"></canvas>
+        <br />
+
+        <div class="row">
+            <div class="small-10 small-centered columns">
+                <ul class="button-group even-3">
+                    <li class="button" onclick="changeCanvasSize(1)">1x</li>
+                    <li class="button" onclick="changeCanvasSize(2)">2x</li>
+                    <li class="button" onclick="changeCanvasSize(3)">3x</li>
+                </ul>
+            </div>
+        </div>
+
+        <br />
+
+        <canvas id="canvas"></canvas>
 
         <script>
+            (function() {
+                var lastTime = 0;
+                    var vendors = ['ms', 'moz', 'webkit', 'o'];
+                for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+                    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+                    window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+                                               || window[vendors[x]+'CancelRequestAnimationFrame'];
+                }
+
+                if (!window.requestAnimationFrame)
+                    window.requestAnimationFrame = function(callback, element) {
+                        var currTime = new Date().getTime();
+                        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+                          timeToCall);
+                        lastTime = currTime + timeToCall;
+                        return id;
+                    };
+
+                if (!window.cancelAnimationFrame)
+                    window.cancelAnimationFrame = function(id) {
+                        clearTimeout(id);
+                    };
+            }());
+
             var canvas = document.getElementById("canvas");
             var context = canvas.getContext("2d");
-            var width = 512;
-            var height = parseInt(width/1.111111111);
+            canvas.width = 480; // all values in the game are with respect to this
+            canvas.height = parseInt(canvas.width / 1.111111111); // ratio of the game boy screen (160 x 144)
+
+            var lastTime;
 
             function Player() {
-                this.size = width/32;
+                var speed = canvas.width / 1000;
 
-                this.x = width/2 - this.size/2;
-                this.y = height/2 - this.size/2;
+                this.size = canvas.width / 32;
+                this.x = 0.5 - (this.size / 2) / canvas.width;
+                this.y = 0.5 - (this.size / 2) / canvas.height;
+
+                this.right = false;
+                this.left = false;
+                this.up = false;
+                this.down = false;
 
                 this.right = false;
                 this.left = false;
 
                 this.draw = function() {
                     context.beginPath();
-                    context.rect(this.x, this.y, this.size, this.size);
-                    context.fillStyle = "#c74b28";
+                    context.rect(canvas.width * this.x, canvas.height * this.y, this.size, this.size);
+                    context.fillStyle = "#C74B28";
                     context.strokeStyle = "#CF5330";
                     context.fill();
                     context.stroke();
                 }
 
-                this.update = function() {
-                    if (this.right) this.x += 1;
-                    if (this.left) this.x -= 1;
+                this.update = function(delta) {
+                    if (this.right) this.x += speed * delta;
+                    if (this.left) this.x -= speed * delta;
+                    if (this.up) this.y -= speed * delta;
+                    if (this.down) this.y += speed * delta;
                 }
             }
 
             var player = new Player();
 
-            function update() {
-                player.update();
-            }
+            function startGame() {
+                document.removeEventListener("keydown", menuKeyDownListener);
 
-            function draw() {
-                context.clearRect(0, 0, width, height);
-                player.draw();
-            }
+                document.addEventListener("keydown", gameKeyDownListener);
+                document.addEventListener("keyup", gameKeyUpListener);
 
-            var FPS = 60;
-            window.requestAnimFrame = (function(){
-              return  window.requestAnimationFrame ||
-                  window.webkitRequestAnimationFrame ||
-                  window.mozRequestAnimationFrame ||
-                  function(callback){
-                    window.setTimeout(callback, 1000/FPS);
-                  }
-            })();
+                player = new Player();
+
+                requestAnimationFrame(loop);
+            }
 
             function loop() {
-                requestAnimFrame(loop);
+                requestAnimationFrame(loop);
+
                 update();
                 draw();
             }
-            loop();
 
-            document.addEventListener("keydown", function(e) {
-                if (e.keyCode === 39) {
-                    player.right = true;
-                }
+            function update() {
+                var currentTime = new Date().getTime();
+                var delta = (currentTime - (lastTime || currentTime)) / 1000;
+                lastTime = currentTime;
+                player.update(delta);
+            }
 
-                if (e.keyCode === 37) {
-                    player.left = true;
-                }
-            });
+            function draw() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                player.draw();
+            }
 
-            document.addEventListener("keyup", function(e) {
-                if (e.keyCode === 39) {
-                    player.right = false;
-                }
+            window.onblur = function() {
+                player.right = false;
+                player.left = false;
+            }
 
-                if (e.keyCode === 37) {
-                    player.left = false;
+            function gameKeyDownListener(e) {
+                if (e.keyCode === 37) player.left = true;
+                if (e.keyCode === 38) player.up = true;
+                if (e.keyCode === 39) player.right = true;
+                if (e.keyCode === 40) player.down = true;
+                if (e.keyCode === 27) mainMenu();
+            }
+
+            function gameKeyUpListener(e) {
+                if (e.keyCode === 37) player.left = false;
+                if (e.keyCode === 38) player.up = false;
+                if (e.keyCode === 39) player.right = false;
+                if (e.keyCode === 40) player.down = false;
+            }
+
+            function changeCanvasSize(e) {
+                canvas.width = 160 * e;
+                canvas.height = parseInt(canvas.width / 1.111111111);
+                player.size = canvas.width / 32;
+            }
+
+            function mainMenu() {
+                document.removeEventListener("keydown", gameKeyDownListener);
+                document.removeEventListener("keyup", gameKeyUpListener);
+
+                document.addEventListener("keydown", menuKeyDownListener);
+
+                requestAnimationFrame(mainMenuLoop);
+            } mainMenu();
+
+            function mainMenuLoop() {
+                requestAnimationFrame(mainMenuLoop);
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillStyle = "orange";
+                context.font = "2em Helvetica Neue";
+                context.textAlign = "center";
+                context.fillText("menu", canvas.width / 2, canvas.height / 2);
+            }
+
+            function menuKeyDownListener(e) {
+                if (e.keyCode === 32) {
+                    startGame();
                 }
-            });
+            }
         </script>
     </body>
 </html>

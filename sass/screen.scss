@@ -9,6 +9,7 @@ body {
 
     font-family: 'Exo 2', sans-serif;
     text-align: center;
+    font-weight: 100;
 }
 
 a {
@@ -27,6 +28,7 @@ header {
 
 .bigTitle {
     font-size: 2em;
+    padding: 32px;
 }
 
 header h1 {
@@ -83,15 +85,22 @@ header h1 {
 #linkedin:hover {color: #2980B9}
 #stackoverflow:hover {color: #E67E22}
 
+#projects {
+    background-color: #E7E2D9;
+
+    a {
+        color: #388E8E;
+        font-size: 1.75em;
+    }
+
+    h1:not(:first-of-type) {
+        margin-bottom: 30px;
+    }
+}
+
 #githubFeed {
     width: 100%;
     background-color: #d9d8d4;
-    font-family: "Exo 2", sans-serif;
-    font-weight: 100;
-
-    #githubFeedTitle {
-        padding: 32px;
-    }
 
     .project {
         display: inline-block;

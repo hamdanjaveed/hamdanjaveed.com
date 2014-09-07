@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GitHub Data Challenge</title>
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            html, body {
+                background-color: #222;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <button onclick="update('rails')">rails</button>
+            <button onclick="update('node')">node</button>
+            <button onclick="update('homebrew')">homebrew</button>
+            <button onclick="update('oh-my-zsh')">oh-my-zsh</button>
+            <button onclick="update('jquery')">jquery</button>
+        </div>
+
+        <div>
+            <button onclick="update(null, 1)">opacity shows frequency</button>
+            <button onclick="update(null, 2)">darken old pushes</button>
+            <button onclick="update(null, 3)">first actor only</button>
+        </div>
+
+        <div>
+            <input type="range" min="1" max="30" value="1" onchange="radiusChange(this.value)" onmousemove="radiusChange(this.value)" id="radiusSlider" />
+            <input type="number" readonly="true" id="radius" />
+        </div>
+
+        <div>
+            <button onclick="show('World')">World</button>
+            <button onclick="show('North America')">North America</button>
+            <button onclick="show('Europe')">Europe</button>
+        </div>
+
+        <script src="d3.min.js"></script>
+        <script src="topojson.v1.min.js"></script>
+
+        <script>
+            document.getElementById("radius").value = document.getElementById("radiusSlider").value;
+
+            var width = 1440;
+            var height = 700;
+
+            var mapColor = "#444";
+            var pushColor = "#F05348"; // #F05348, #4CB39B
+            var newPushColor = "#4CB39B";
+
+            var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            var map = svg.append("g")
+                .attr("class", "map");
+
+            var projection = d3.geo.mercator()
+                .scale(200)
+                .translate([width / 2, height / 2 + 100]);
+
+            var timer;
+            var dataSet;
+            var format;
+            var world;
+
+            d3.json("countries.topo.json", function(error, worldData) {
+                if (error) return console.log(error);
+
+                world = worldData;
+
+                drawMap();
+                update("rails", 0);
+            });
+
+            function update(newDataSet, newFormat) {
+                clearInterval(timer);
+
+                d3.selectAll(".map circle").remove();
+
+                if (newDataSet) dataSet = newDataSet;
+                if (newFormat) format = newFormat;
+
+                d3.csv(dataSet + " output.csv", function(error, data) {
+                    if (error) return console.log(error);
+
+                    switch(format) {
+                        case 1:
+                            opacityShowsFrequency(data);
+                            break;
+                        case 2:
+                            darkenOldPushes(data);
+                            break;
+                        case 3:
+                            firstActorOnly(data);
+                            break;
+                        default:
+                            opacityShowsFrequency(data);
+                            break;
+                    };
+                });
+            }
+
+            function radiusChange(r) {
+                document.getElementById("radius").value = r;
+
+                d3.selectAll(".map circle")
+                    .attr("r", document.getElementById("radius").value);
+            }
+
+            function show(showThis) {
+                if (showThis === "World") {
+                    projection
+                        .scale(200)
+                        .translate([width / 2, height / 2 + 100]);
+                } else if (showThis === "North America") {
+                    projection
+                        .scale(400)
+                        .translate([width / 2 + 670, height / 2 + 300]);
+                } else if (showThis === "Europe") {
+                    projection
+                        .scale(400)
+                        .translate([width / 2 - 150, height / 2 + 400]);
+                }
+
+                drawMap();
+                update();
+            }
+
+            function drawMap() {
+                d3.select(".map path").remove();
+
+                map.append("path")
+                    .datum(topojson.feature(world, world.objects.countries))
+                    .attr("d", d3.geo.path().projection(projection))
+                    .attr("fill", mapColor);
+            }
+
+            function appendPush(pushCoordinates, push) {
+                map.append("svg:circle")
+                    .attr("cx", pushCoordinates[0])
+                    .attr("cy", pushCoordinates[1])
+                    .attr("r", document.getElementById("radius").value)
+                    .attr("fill", newPushColor)
+                    .attr("opacity", 0.2)
+                    .data([push]);
+            }
+
+            function opacityShowsFrequency(data) {
+                var monthData = [];
+                var tempMonthData = [];
+                var currentMonth;
+                for (var i = data.length - 1; i >= 0; i--) {
+                    if (data[i].month !== currentMonth) {
+                        currentMonth = data[i].month;
+
+                        if (tempMonthData.length) {
+                            monthData.push(tempMonthData);
+                            tempMonthData = [];
+                        }
+                    }
+
+                    tempMonthData.push(data[i]);
+                }
+                if (tempMonthData.length) monthData.push(tempMonthData);
+
+                var currentMonth = 0;
+                var doneAdding = false;
+                timer = setInterval(function() {
+                    if (currentMonth >= monthData.length - 1) {
+                        clearInterval(timer);
+                        doneAdding = true;
+                    }
+
+                    d3.selectAll(".map circle")
+                        .style("fill", "#F05348")
+                        .style("opacity", 0.4);
+
+                    for (var i = 0; i < monthData[currentMonth].length; i++) {
+                        var push = monthData[currentMonth][i];
+
+                        if (!(push.lat && push.lng)) continue;
+
+                        var pushCoordinates = projection([push.lng, push.lat]);
+
+                        appendPush(pushCoordinates, push);
+                    }
+
+                    if (doneAdding) {
+                        d3.selectAll(".map circle")
+                            .style("fill", "#F05348")
+                            .style("opacity", 0.4);
+                    }
+
+                    currentMonth++;
+                }, 100);
+            }
+
+            function darkenOldPushes(data) {
+                var monthData = [];
+                var tempMonthData = [];
+                var currentMonth;
+                for (var i = data.length - 1; i >= 0; i--) {
+                    if (data[i].month !== currentMonth) {
+                        currentMonth = data[i].month;
+
+                        if (tempMonthData.length) {
+                            monthData.push(tempMonthData);
+                            tempMonthData = [];
+                        }
+                    }
+
+                    tempMonthData.push(data[i]);
+                }
+                if (tempMonthData.length) monthData.push(tempMonthData);
+
+                var currentMonth = 0;
+                var doneAdding = false;
+                timer = setInterval(function() {
+                    if (currentMonth >= monthData.length - 1) {
+                        clearInterval(timer);
+                        doneAdding = true;
+                    }
+
+                    d3.selectAll(".map circle").each(function(d, i) {
+                        var element = d3.select(this);
+                        var elementColor = d3.rgb(element.attr("fill"));
+
+                        element.attr("fill", elementColor.darker(0.2));
+                    });
+
+                    for (var i = 0; i < monthData[currentMonth].length; i++) {
+                        var push = monthData[currentMonth][i];
+
+                        if (!(push.lat && push.lng)) continue;
+
+                        var pushCoordinates = projection([push.lng, push.lat]);
+
+                        appendPush(pushCoordinates, push);
+                    }
+
+                    currentMonth++;
+                }, 100);
+            }
+
+            function firstActorOnly(data) {
+                var monthData = [];
+                var tempMonthData = [];
+                var currentMonth;
+                for (var i = data.length - 1; i >= 0; i--) {
+                    if (data[i].month !== currentMonth) {
+                        currentMonth = data[i].month;
+
+                        if (tempMonthData.length) {
+                            monthData.push(tempMonthData);
+                            tempMonthData = [];
+                        }
+                    }
+
+                    tempMonthData.push(data[i]);
+                }
+                if (tempMonthData.length) monthData.push(tempMonthData);
+
+                var actorsSeen = [];
+                for (var i = 0; i < monthData.length; i++) {
+                    var newThisMonthData = [];
+
+                    for (var j = 0; j < monthData[i].length; j++) {
+                        if (actorsSeen.indexOf(monthData[i][j].actor) === -1) {
+                            actorsSeen.push(monthData[i][j].actor);
+                            newThisMonthData.push(monthData[i][j]);
+                        }
+                    }
+
+                    monthData[i] = newThisMonthData;
+                }
+
+                var currentMonth = 0;
+                var doneAdding = false;
+                timer = setInterval(function() {
+                    if (currentMonth >= monthData.length - 1) {
+                        clearInterval(timer);
+                        doneAdding = true;
+                    }
+
+                    d3.selectAll(".map circle").each(function(d, i) {
+                        var element = d3.select(this);
+                        var elementColor = d3.rgb(element.attr("fill"));
+
+                        element.attr("fill", elementColor.darker(0.2));
+                    });
+
+                    for (var i = 0; i < monthData[currentMonth].length; i++) {
+                        var push = monthData[currentMonth][i];
+
+                        if (!(push.lat && push.lng)) continue;
+
+                        var pushCoordinates = projection([push.lng, push.lat]);
+
+                        appendPush(pushCoordinates, push);
+                    }
+
+                    currentMonth++;
+                }, 100);
+            }
+        </script>
+    </body>
+</html>

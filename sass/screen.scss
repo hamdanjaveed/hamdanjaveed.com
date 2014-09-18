@@ -3,11 +3,22 @@
 
 @include font-face("Social", font-files("MonoSocialIconsFont/MonoSocialIconsFont-1.10.eot", "MonoSocialIconsFont/MonoSocialIconsFont-1.10.eot?#iefix", "MonoSocialIconsFont/MonoSocialIconsFont-1.10.woff", "MonoSocialIconsFont/MonoSocialIconsFont-1.10.ttf", "MonoSocialIconsFont/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont", "MonoSocialIconsFont/MonoSocialIconsFont-1.10.ttf"));
 
+$cream: #E7E2D9;
+$darkBrown: #665953;
+$offWhite: #F3F3F3;
+$grey: #D3D3D3;
+
+$appStore: #B69C22;
+$email: #C0392B;
+$github: #1E824C;
+$linkedIn: #2980B9;
+$stackOverflow: #E67E22;
+
 $githubProjectBlur: 2px;
 
 body {
-    background-color: #E7E2D9;
-    color: #665953;
+    background-color: $cream;
+    color: $darkBrown;
 
     font-family: 'Exo 2', sans-serif;
     text-align: center;
@@ -24,7 +35,7 @@ a {
 }
 
 header {
-    background-color: #F3F3F3;
+    background-color: $offWhite;
     padding: 16px;
 }
 
@@ -40,20 +51,14 @@ header h1 {
 #me {
     width: 32px;
     border-radius: 100%;
-    border: thin solid #665953;
+    border: thin solid $darkBrown;
     display: inline;
     position: absolute;
     margin-left: 16px;
 }
 
-#me {
-    width: 32px;
-    border-radius: 100%;
-    border: thin solid #665953;
-}
-
 #socialBar {
-    background-color: #D3D3D3;
+    background-color: $grey;
     padding: 8px;
 }
 
@@ -75,21 +80,19 @@ header h1 {
     -ms-font-smoothing: antialiased;
     -o-font-smoothing: antialiased;
     font-smoothing: antialiased;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
-.socialIcon:hover {
-    cursor: pointer;
-}
-
-#appstore:hover {color: #B69C22}
-#email:hover {color: #c0392b}
-#github:hover {color: #1E824C}
-#linkedin:hover {color: #2980B9}
-#stackoverflow:hover {color: #E67E22}
+#appstore:hover {color: $appStore}
+#email:hover {color: $email}
+#github:hover {color: $github}
+#linkedin:hover {color: $linkedIn}
+#stackoverflow:hover {color: $stackOverflow}
 
 #projects {
-    background-color: #E7E2D9;
-
     a {
         color: #388E8E;
         font-size: 1.75em;
@@ -101,8 +104,8 @@ header h1 {
 }
 
 #githubFeed {
+    background-color: $grey;
     width: 100%;
-    background-color: #d9d8d4;
 
     .project {
         display: inline-block;

@@ -1,6 +1,5 @@
-@import "compass/reset";
-@import "compass";
+// Import variables, mixins etc.
+@import "modules/all";
 
-@import "partials/base";
-
-@import "partials/typography";
+// Import styles
+@import "partials/all";

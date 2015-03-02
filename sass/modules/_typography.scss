@@ -1,11 +1,15 @@
 // Typography
 
-$font-weight-light: 100;
+$font-weight-light: 200;
 $font-weight-regular: 300;
-$font-weight-bold: 600;
+$font-weight-bold: 400;
+$font-weight-bolder: 600;
 
 $base-text-color: $grey-light-concrete;
-$base-font-family: 'Lato', sans-serif;
+$base-font-family: 'Source Sans Pro', 'Lato', sans-serif;
 $base-font-size: 18px;
 $base-font-weight: $font-weight-regular;
-$base-line-height: 1.6;
+
+$header-font-family: 'Lato', sans-serif;
+$header-font-size: 24px;
+$header-font-weight: $font-weight-light;

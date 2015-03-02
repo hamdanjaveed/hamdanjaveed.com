@@ -5,9 +5,10 @@ body {
 	font-size: $base-font-size;
 	font-family: $base-font-family;
 	font-weight: $base-font-weight;
-	line-height: $base-line-height;
 }
 
-h1 {
-	color: $grey-light-concrete;
+#{headings()} {
+	font-size: $header-font-size;
+	font-family: $header-font-family;
+	font-weight: $header-font-weight;
 }

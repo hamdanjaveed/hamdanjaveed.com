@@ -1,15 +1,25 @@
 // Typography
 
+// Futura Light
+@font-face {
+	font-family: FuturaLight;
+	src: url("../res/fonts/FuturaLight.ttf");
+	font-weight: 100;
+}
+
+// Font weights
 $font-weight-light: 200;
 $font-weight-regular: 300;
 $font-weight-bold: 400;
 $font-weight-bolder: 600;
 
+// Base text
 $base-text-color: $grey-light-concrete;
 $base-font-family: 'Source Sans Pro', 'Lato', sans-serif;
 $base-font-size: 18px;
 $base-font-weight: $font-weight-regular;
 
-$header-font-family: 'Lato', sans-serif;
+// Headers
+$header-font-family: 'FuturaLight', sans-serif;
 $header-font-size: 24px;
 $header-font-weight: $font-weight-light;

@@ -1,0 +1,33 @@
+/* Imports */
+@import url('colors.css');
+@import url('typography.css');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'FuturaLight', sans-serif;
+}
+
+/* Layout */
+body {
+    background-color: var(--blue-dark-feltron);
+    color: var(--red-light);
+    font-family: 'SourceSansPro', sans-serif;
+}
+
+/* Left and right sections */
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+section {
+    border: thin solid var(--grey-light-concrete);
+    padding: 20px;
+}
+
+section.left {
+    flex-grow: 1;
+}
+
+section.right {
+    flex-grow: 5;
+}

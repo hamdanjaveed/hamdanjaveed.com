@@ -1,0 +1,27 @@
+{
+  "name": "hamdanjaveed.com",
+  "version": "2.0.0",
+  "description": "My personal website",
+  "main": "compile.js",
+  "dependencies": {
+    "rework": "^1.0.1",
+    "rework-inherit": "^0.2.3",
+    "clean-css": "^3.1.9",
+    "myth": "^1.4.0",
+    "rework-import": "^2.0.1",
+    "watch": "^0.16.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hamdanjaveed/hamdanjaveed.com.git"
+  },
+  "author": "Hamdan Javeed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamdanjaveed/hamdanjaveed.com/issues"
+  },
+  "homepage": "https://github.com/hamdanjaveed/hamdanjaveed.com"
+}

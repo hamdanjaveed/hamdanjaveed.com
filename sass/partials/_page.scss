@@ -5,9 +5,29 @@ body {
 }
 
 .container {
-	padding: 20px;
+	padding: 40px;
 }
 
-section.red {
-	color: $red-light;
+section {
+    #{headings()} {
+        padding: 10px 0;
+    }
+}
+
+$section-colors: "red" $red, "blue" $blue, "yellow" $yellow;
+@each $colorGroup in $section-colors {
+    $className: nth($colorGroup, 1);
+    $color: nth($colorGroup, 2);
+
+    section.#{$className} {
+        color: $color;
+
+        h1 {
+            border-bottom: 1px solid rgba($color, 0.35);
+        }
+    }
+}
+
+section.left {
+    
 }

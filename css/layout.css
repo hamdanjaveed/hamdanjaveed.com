@@ -13,11 +13,11 @@
     background-color: var(--blue-dark-midnight-blue);
 }
 
-section,
+main,
 .sidebar {
     padding: var(--section-padding);
 }
 
-.content {
+main {
     margin-left: calc(var(--sidebar-width) + var(--sidebar-padding) * 2px);
 }

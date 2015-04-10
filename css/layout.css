@@ -1,7 +1,9 @@
 /* Left and right sections */
 
 :root {
+    /* Sections */
     --section-padding: 20px;
+    /* Sidebar */
     --sidebar-padding: var(--section-padding);
     --sidebar-width: 260px;
 }
@@ -10,7 +12,6 @@
     position: fixed;
     width: var(--sidebar-width);
     height: 100%;
-    background-color: var(--blue-dark-midnight-blue);
 }
 
 main,
@@ -19,5 +20,5 @@ main,
 }
 
 main {
-    margin-left: calc(var(--sidebar-width) + var(--sidebar-padding) * 2px);
+    margin-left: calc(var(--sidebar-width) + var(--sidebar-padding) * 2px); /* sidebarWidth + (2 * sidebarPadding) */
 }

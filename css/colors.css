@@ -1,22 +1,37 @@
 /*Colors*/
 
 :root {
-    --blue-dark-midnight-blue: #2c3e50;
-    --blue-dark-feltron: #37384b;
-    --grey-light-concrete: #95a5a6;
-    --red-light: #d5465a;
+    /* Feltron colors (taken from FAR_13) */
+    --feltron-blue-dark: #37384b;
+    --feltron-red-light: #d5465a;
+    /* Flat U.I Colors */
+    --cyan-light: #1abc9c;
+    --cyan-dark: #16a085;
+    --green-light: #2ecc71;
+    --green-dark: #27ae60;
+    --blue-light: #3498db;
+    --blue-dark: #2980b9;
+    --purple-light: #9b59b6;
+    --purple-dark: #8e44ad;
+    --yellow-light: #f1c40f;
+    --orange-dark: #d35400;
+    --orange-light: #e67e22;
+    --red-light: #e74c3c;
+    --red-dark: #c0392b;
+    --white: #ecf0f1;
+    --silver: #bdc3c7;
+    --grey-light: #95a5a6;
+    --grey-dark: #7f8c8d;
+    --wet-asphalt: #34495e;
+    --midnight-blue: #2c3e50;
 }
 
 body {
-    background-color: var(--blue-dark-feltron);
-    color: var(--grey-light-concrete);
+    background-color: var(--white);
+    color: var(--grey-dark);
 }
 
-.red h1,
-.red h2,
-.red h3,
-.red h4,
-.red h5,
-.red h6 {
-    color: var(--red-light);
+.sidebar {
+    background-color: var(--feltron-blue-dark);
+    color: var(--red-light)
 }

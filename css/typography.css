@@ -2,21 +2,18 @@
 
 @font-face {
     font-family: 'FuturaLight';
-
     src: url('../res/fonts/FuturaLight.ttf');
 }
 
 @font-face {
-    font-family: 'SourceSansPro';
     font-weight: normal;
-
+    font-family: 'SourceSansPro';
     src: url('../res/fonts/SourceSansPro-Regular.ttf');
 }
 
 @font-face {
-    font-family: 'SourceSansPro';
     font-weight: lighter;
-
+    font-family: 'SourceSansPro';
     src: url('../res/fonts/SourceSansPro-Light.ttf');
 }
 

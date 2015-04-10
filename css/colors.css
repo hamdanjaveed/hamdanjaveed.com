@@ -8,6 +8,15 @@
 }
 
 body {
-    color: var(--red-light);
     background-color: var(--blue-dark-feltron);
+    color: var(--grey-light-concrete);
+}
+
+.red h1,
+.red h2,
+.red h3,
+.red h4,
+.red h5,
+.red h6 {
+    color: var(--red-light);
 }

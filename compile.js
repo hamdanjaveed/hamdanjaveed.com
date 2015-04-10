@@ -6,6 +6,8 @@ var clean = require('clean-css');
 var inherit = require('rework-inherit');
 var imprt = require('rework-import');
 
+var comb = new require('csscomb')('zen');
+
 var watch = require('watch');
 
 var stylesFilePath = "css";
@@ -20,6 +22,8 @@ watch.createMonitor(stylesFilePath, function(m) {
 
 function recompile() {
     try {
+        comb.processPath(stylesFilePath);
+
         var rawCSS = fs.readFileSync(sourceFilePath, 'utf-8');
 
         var css = rework(rawCSS)

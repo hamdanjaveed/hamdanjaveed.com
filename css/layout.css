@@ -1,0 +1,20 @@
+/* Left and right sections */
+.container {
+    display: flex;
+
+    justify-content: space-around;
+}
+
+section {
+    padding: 20px;
+
+    border: thin solid var(--grey-light-concrete);
+}
+
+section.left {
+    flex-grow: 1;
+}
+
+section.right {
+    flex-grow: 5;
+}

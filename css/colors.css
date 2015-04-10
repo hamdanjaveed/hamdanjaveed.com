@@ -6,3 +6,8 @@
     --grey-light-concrete: #95a5a6;
     --red-light: #d5465a;
 }
+
+body {
+    color: var(--red-light);
+    background-color: var(--blue-dark-feltron);
+}

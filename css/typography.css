@@ -20,6 +20,10 @@
     src: url('../res/fonts/SourceSansPro-Light.ttf');
 }
 
+body {
+    font-family: 'SourceSansPro', sans-serif;
+}
+
 h1,
 h2,
 h3,

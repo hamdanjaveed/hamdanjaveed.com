@@ -1,32 +1,4 @@
 /* Imports */
 @import url('colors.css');
 @import url('typography.css');
-
-/* Layout */
-body {
-    font-family: 'SourceSansPro', sans-serif;
-
-    color: var(--red-light);
-    background-color: var(--blue-dark-feltron);
-}
-
-/* Left and right sections */
-.container {
-    display: flex;
-
-    justify-content: space-around;
-}
-
-section {
-    padding: 20px;
-
-    border: thin solid var(--grey-light-concrete);
-}
-
-section.left {
-    flex-grow: 1;
-}
-
-section.right {
-    flex-grow: 5;
-}
+@import url('layout.css');

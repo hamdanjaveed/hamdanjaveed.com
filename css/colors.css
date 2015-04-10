@@ -33,5 +33,9 @@ body {
 
 .sidebar {
     background-color: var(--feltron-blue-dark);
-    color: var(--red-light)
+    color: var(--grey-dark);
+}
+
+.sidebar h2 {
+    color: var(--red-light);
 }

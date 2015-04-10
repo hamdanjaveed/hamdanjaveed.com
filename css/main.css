@@ -2,26 +2,25 @@
 @import url('colors.css');
 @import url('typography.css');
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'FuturaLight', sans-serif;
-}
-
 /* Layout */
 body {
-    background-color: var(--blue-dark-feltron);
-    color: var(--red-light);
     font-family: 'SourceSansPro', sans-serif;
+
+    color: var(--red-light);
+    background-color: var(--blue-dark-feltron);
 }
 
 /* Left and right sections */
 .container {
     display: flex;
+
     justify-content: space-around;
 }
 
 section {
-    border: thin solid var(--grey-light-concrete);
     padding: 20px;
+
+    border: thin solid var(--grey-light-concrete);
 }
 
 section.left {

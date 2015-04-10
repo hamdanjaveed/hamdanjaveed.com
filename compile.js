@@ -8,9 +8,9 @@ var imprt = require('rework-import');
 
 var watch = require('watch');
 
-var stylesFilePath = "css/stylesheets";
+var stylesFilePath = "css";
 var sourceFilePath = stylesFilePath + "/main.css";
-var buildFilePath = "css/build/build.css";
+var buildFilePath = "build/build.css";
 
 watch.createMonitor(stylesFilePath, function(m) {
     m.on("created", recompile);

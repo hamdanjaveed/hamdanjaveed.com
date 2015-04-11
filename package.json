@@ -6,6 +6,7 @@
   "dependencies": {
     "clean-css": "^3.1.9",
     "csscomb": "^3.0.4",
+    "es6-module-transpiler": "^0.10.0",
     "myth": "^1.4.0",
     "rework": "^1.0.1",
     "rework-import": "^2.0.1",

@@ -30,12 +30,3 @@ body {
     background-color: var(--white);
     color: var(--grey-dark);
 }
-
-.sidebar {
-    background-color: var(--feltron-blue-dark);
-    color: var(--grey-dark);
-}
-
-.sidebar h2 {
-    color: var(--red-light);
-}

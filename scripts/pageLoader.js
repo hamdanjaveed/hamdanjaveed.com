@@ -31,11 +31,11 @@ function setMainContent(node) {
 }
 
 function attachStatefulEventListeners(node) {
-    var links = node.getElementsByClassName('stateful');
+    var links = node.getElementsByClassName('pjax');
 
     for (var i = 0; i < links.length; i++) {
         links[i].addEventListener('click', function(e) {
-            goToPage(e.target.href);
+            goToPage(e.target.getAttribute('data-location'));
 
             e.preventDefault();
         }, false);

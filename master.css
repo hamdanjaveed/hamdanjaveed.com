@@ -1,0 +1,111 @@
+html {
+    background-color: #FFFAF2;
+    font-family: 'Lato', sans-serif;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 25em;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    margin-top: 3em;
+}
+
+#name {
+    display: inline;
+    margin: 0 auto;
+    padding-bottom: 0.125em;
+}
+
+#description {
+    margin-top: 2.5em;
+    line-height: 1.2em;
+}
+
+.section_container {
+    margin-top: 3em;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+
+    margin-top: 1.5em;
+    height: 3em;
+}
+
+.project_icon {
+    width: 3em;
+}
+
+.project_description_container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    margin-left: 1em;
+    line-height: normal;
+
+    overflow-x: hidden;
+}
+
+.project_name {
+    margin-top: -0.1em;
+    margin-bottom: 0.2em;
+}
+
+.project_description {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+#github {
+    display: none;
+}
+
+/* headers */
+h1 { font-size: 2.00em; font-weight: 400; }
+h2 { font-size: 1.50em; font-weight: 400; }
+h3 { font-size: 1.17em; font-weight: 400; }
+h4 { font-size: 1.00em; font-weight: 400; }
+h5 { font-size: 0.83em; font-weight: 400; }
+h6 { font-size: 0.67em; font-weight: 400; }
+
+h1, h2, h3, h4, h5, h6, p {
+    color: #665953;
+}
+
+.text_centered {
+    text-align: center;
+}
+
+.text_align_left {
+    text-align: left;
+}
+
+.text_underlined {
+    text-decoration: none;
+    background-image: linear-gradient(#FFFAF2 95%, #99857D 5%);
+    background-repeat: repeat-x;
+}
+
+.text_light {
+    color: #99857D;
+}
+
+.text_weight_light {
+    font-weight: 300;
+}
+
+.text_weight_normal {
+    font-weight: 400;
+}
+
+.text_weight_bold {
+    font-weight: 700;
+}
